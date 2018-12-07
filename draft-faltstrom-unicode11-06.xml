@@ -36,7 +36,7 @@
 <?rfc comments='yes' ?>
 <?rfc inline='yes' ?>  
 
-<rfc docName="draft-faltstrom-unicode11-05" ipr="trust200902" category="info">
+<rfc docName="draft-faltstrom-unicode11-06" ipr="trust200902" category="std">
   <front>
     <title abbrev="IDNA2008 and Unicode 11">
       IDNA2008 and Unicode 11.0.0
@@ -47,7 +47,7 @@
 	<email>paf@netnod.se</email>
       </address>
     </author>
-    <date month="December" year="2018" day="01"/>
+    <date month="December" year="2018" day="06"/>
     <area>Operations</area>
     <keyword>IDN</keyword>
     <keyword>IDNA</keyword>
@@ -77,6 +77,12 @@
 	In addition, all registries should continue the practice of
 	calculating a repertoire using conservatism and inclusion
 	principles.
+      </t>
+      <t>
+	TO BE REMOVED AT TIME OF PUBLICATION AS AN RFC:
+      </t>
+      <t>
+	This document is discussed on the i18nrp@ietf.org mailing list of the IETF.
       </t>
     </abstract>
   </front>
