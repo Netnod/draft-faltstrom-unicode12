@@ -299,14 +299,14 @@
 	</t>
       </section>
     </section>
-    <section anchor="changes" title="Notable changes between Unicode 6.3.0 and 11.0.0">
-      <section title="Changes to Unicode 7.0.0">
+    <section anchor="changes" title="Notable Changes Between Unicode 6.3.0 and 11.0.0">
+      <section title="Changes in Unicode 7.0.0">
 	<t>
-	  The character ARABIC LETTER BEH WITH HAMZA ABOVE U+08A1 was
-	  introduced in Unicode 7.0.0. This was discussed in the IETF
-	  extensively and by IAB in <xref target="IAB">their
+	  The character ARABIC LETTER BEH WITH HAMZA ABOVE (U+08A1) was
+	  introduced in Unicode 7.0.0. This was discussed extensively in the IETF,
+	  and by the IAB in <xref target="IAB">their
 	  statement</xref> requesting the IETF to investigate the
-	  issue. Specifically IAB stated:
+	  issue. Specifically, the IAB stated:
 	</t>
 	<t>
 	  <list>
@@ -323,21 +323,21 @@
 	<t>
 	  The discussion in the IETF concluded that although it is
 	  possible to create "the same" character in multiple ways,
-	  the issue with U+08A1 is not unique.  In the case of U+08A1,
-	  it can be represented with the sequence ARABIC LETTER BEH
-	  (U+0628) and ARABIC HAMZA ABOVE (U+0654). Just like LATIN
-	  SMALL LETTER A WITH DIAERESIS (U+00E4) can be represented
-	  via the sequence LATIN SMALL LETTER A (U+0061), and
-	  COMBINING DIAERESIS (U+0308).  One difference between these
+	  the issue with U+08A1 is not unique.  The character U+08A1
+	  can be represented with the sequence ARABIC LETTER BEH
+	  (U+0628) and ARABIC HAMZA ABOVE (U+0654). This identical to LATIN
+	  SMALL LETTER A WITH DIAERESIS (U+00E4), that can be represented
+	  with the sequence LATIN SMALL LETTER A (U+0061) followed by
+	  COMBINING DIAERESIS (U+0308).  One difference between these two
 	  sequences is how they are treated in the normalization forms
 	  specified by the Unicode Consortium.
 	</t>
 	<t>
-	  As U+08A1 is discussed in 
+	  U+08A1 is discussed in 
 	  <xref target="I-D.freytag-troublesome-characters">draft-freytag-troublesome-characters</xref>
-	  and elsewhere. Regardless of whether those discussions ends
-	  in recommending including the code point in the repertoire
-	  of characters permissable for registration or not, it is
+	  and other Internet Drafts. Regardless of whether the discussion of those drafts ends
+	  in recommendations to include the code point in the repertoire
+	  of characters permissable for registration or not, it is still
 	  acceptable to allow the code point to have a derived
 	  property value of PVALID.
 	</t>
@@ -349,35 +349,35 @@
 	  property value.
 	</t>
       </section>
-      <section title="Changes to Unicode 11.0.0">
+      <section title="Changes in Unicode 11.0.0">
 	<t>
 	  <xref target="Unicode-11.0.0">The Unicode Standard Version
 	  11.0.0</xref> has included a
 	  <xref target="Changes-11.0.0">number of changes</xref> from
-	  version 10.0.0, specifically to UnicodeData.txt:
+	  version 10.0.0.
 	  <list style="symbols">
 	    <t>
-	      Entries were added for the 684 new characters, including
+	      684 new characters were added, including
 	      letters, combining marks, digits, symbols, and
 	      punctuation marks.
 	    </t>
 	    <t>
-	      Georgian letters in the ranges U+10D0..U+10FA,
-	      U+10FD..U+10FF were changed from Lo to Ll, to reflect
+	      Georgian letters in the ranges U+10D0..U+10FA and
+	      U+10FD..U+10FF had their General Properties changed from Lo to Ll, to reflect
 	      their status as the lowercase of new Georgian case
 	      pairs. Case mappings were also added.
 	    </t>
 	    <t>
-	      U+111C9 SHARADA SANDHI MARK was changed from Po to Mn,
+	      SHARADA SANDHI MARK (U+111C9 ) was changed from Po to Mn,
 	      and from bc=L to bc=NSM.
 	    </t>
 	    <t>
-	      U+11A07 ZANABAZAR SQUARE VOWEL SIGN AI and U+11A08
-	      ZANABZAR SQUARE VOWEL SIGN AU were corrected from Mc to
+	      The properties for ZANABAZAR SQUARE VOWEL SIGN AI (U+11A07) and
+	      ZANABZAR SQUARE VOWEL SIGN AU (U+11A08) were corrected from Mc to
 	      Mn.
 	    </t>
 	    <t>
-	      U+29A1 SPHERICAL ANGLE OPENING UP was changed to
+	      SPHERICAL ANGLE OPENING UP (U+29A1) was changed to
 	      Bidi_M=N.
 	    </t>
 	  </list>
@@ -391,9 +391,9 @@
 	    </t>
 	    <t>
 	      The Georgian letters in the ranges U+10D0..U+10FA and
-	      U+10FD..U+10FF have existed since before IDNA2008 was
+	      U+10FD..U+10FF existed before IDNA2008 was
 	      created.  Applying the IDNA2008 algorithm to the code
-	      points did assign the derived property value PVALID and
+	      points assigned the derived property value PVALID, and
 	      that value is unchanged even if the underlying Unicode
 	      properties have changed.
 	    </t>
@@ -401,26 +401,26 @@
 	      The U+111C9 SHARADA SANDHI MARK was added
 	      to <xref target="Unicode-8.0.0">Unicode
 	      8.0.0</xref>. Applying the IDNA2008 algorithm to the
-	      code point did assign the derived property value
+	      code point assigned the derived property value
 	      DISALLOWED. The changes in the underlying properties in
 	      the <xref target="Unicode-11.0.0">Unicode Standard
-	      Version 11.0.0</xref> make the derived property value
-	      change to PVALID which is an acceptable change.
+	      Version 11.0.0</xref> caused the derived property value to
+	      change to PVALID, which is an acceptable change.
 	    </t>
 	    <t>
-	      The characters U+11A07 ZANABAZAR SQUARE VOWEL SIGN AI
-	      and U+11A08 ZANABZAR SQUARE VOWEL SIGN AU were added to
+	      The characters ZANABAZAR SQUARE VOWEL SIGN AI (U+11A07)
+	      and ZANABZAR SQUARE VOWEL SIGN AU (U+11A08) were added to
 	      <xref target="Unicode-10.0.0">Unicode 10.0.0</xref>.
-	      Applying the IDNA2008 algorithm to the code points did
-	      assign the derived property value PVALID and that value
+	      Applying the IDNA2008 algorithm to the code points
+	      assigned the derived property value PVALID, and that value
 	      is unchanged even if the underlying Unicode properties
 	      have changed.
 	    </t>
 	    <t>
-	      U+29A1 SPHERICAL ANGLE OPENING UP have existed since
+	      SPHERICAL ANGLE OPENING UP (U+29A1) existed
 	      before IDNA2008 was created.  Applying the IDNA2008
-	      algorithm to the code point did assign the derived
-	      property value PVALID and that value is unchanged even
+	      algorithm to the code point assigned the derived
+	      property value PVALID, and that value is unchanged even
 	      if the underlying Unicode properties have changed.
 	    </t>
 	  </list>
