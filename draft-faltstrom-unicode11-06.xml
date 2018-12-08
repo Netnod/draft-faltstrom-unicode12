@@ -429,32 +429,32 @@
     </section>
     <section title="Conclusion">
       <t>
-	As described in <xref target="changes"/> changes have been
+	As described in <xref target="changes"/>, changes have been
 	made to Unicode between version 6.3.0 and 11.0.0. Some changes
 	to specific characters changed their derived property
-	value. Others did not.  Given the diverse deployment described
+	value, while other changes did not.  Given the diverse deployment described
 	in <xref target="deployment"/> and the changes described,
-	including implications to normalization, the conclusion is to
+	including implications to normalization, the conclusion of this document is to
 	not add any exception rules to IDNA2008.
       </t>
       <t>
-	To increase overall harmonization in the use of
-	internationalized domain names, the author recommends that the
+	To increase overall harmonization in the use of IDNs,
+	this document recommends that the
 	derived property values MUST be calculated as specified in the
-	documents listed in section <xref target="idna2008"/> also
-	with code points in
+	documents listed in section <xref target="idna2008"/> and
+	with the code points in
 	<xref target="Unicode-11.0.0">Unicode Version 11.0.0</xref>.
       </t>
       <t>
-	All registries (and others) SHOULD calculate a repertoire
-	using the conservatism and inclusion principles as laid out
-	for example in in <xref target="SAC-084">SAC-084</xref>.
+	All DNS registries (and other organizatios) SHOULD calculate a repertoire
+	using the conservatism and inclusion principles, as described
+	in <xref target="SAC-084">SAC-084</xref> and similar documents.
       </t>
     </section>
     <section title="IANA Considerations">
       <t>
-	IANA is requested to update the registry of derived property
-	values after validation with the Appointed Expert that the
+	IANA is requested to update the IDNA Parameters registry of derived property
+	values, after the expert reviewer validates that the
 	derived property values are calculated correctly.
       </t>
     </section>
@@ -462,14 +462,14 @@
       <t>
 	This document makes recommendations regarding the use of the IDNA2008
 	algorithm for calculation of derived property values, based on the
-	current Unicode version. It also recommends that registries (and
+	current Unicode version. It also recommends that DNS registries (and
 	others dealing with Internationalized Domain Names) explicitly select
 	appropriate subsets of characters with the derived value of PVALID.
       </t>
       <t>
 	Not following these recommendations can lead to various
 	security issues. Specifically, allowing confusable characters
-	may lead to various phishing attacks. See Security
+	may lead to various phishing attacks, as described in the Security
 	Consideration Sections in the documents listed in section
 	<xref target="idna2008"/>.
       </t>
