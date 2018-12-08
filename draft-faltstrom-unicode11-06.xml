@@ -232,9 +232,9 @@
       </section>
       <section anchor="deployment" title="Deployment">
 	<t>
-	  The deployment of IDNA2008 is unfortunately quite
+	  The level of deployment of IDNA2008 is unfortunately quite
 	  diverse. The following lists some of the strategies that
-	  existing implementations are known to implement:
+	  existing implementations are known to use:
 	  <list style="symbols">
 	    <t>
 	      IDNA2003 as specified in <xref target="RFC3490">RFC
@@ -251,7 +251,7 @@
 	      algorithm specified in IDNA2008.
 	    </t>
 	    <t>
-	      Strict IDNA2008 following IANA which implies staying at
+	      Strict IDNA2008 following the current IANA tables, which implies staying at
 	      <xref target="Unicode-6.3.0">Unicode 6.3.0</xref> and
 	      treating later assigned code points as UNASSIGNED.
 	    </t>
@@ -259,7 +259,7 @@
 	      The IDNA2008 algorithm applied to whatever version of
 	      Unicode Standard exists in the operating system and/or
 	      libraries used, regardless of whether the version is
-	      later than Unicode version 6.3.0 or not.
+	      later than Unicode version 6.3.0.
 	    </t>
 	    <t>
 	      A mix between IDNA2003 and IDNA2008 according to local
@@ -267,11 +267,11 @@
 	      Technical Standard #46</xref>.
 	    </t>
 	  </list>
-	  The issue is further complicated by having a very diverse
+	  The issue is further complicated by having diverse
 	  implementations of the requirements
-	  in <xref target="RFC5894">RFC 5894</xref> by registry
-	  operators based on the IDNA2008 specification to create
-	  additional rules for what code points are allowed to be used
+	  in <xref target="RFC5894">RFC 5894</xref> by DNS registry
+	  operators, based on the IDNA2008 specification, but with
+	  additional rules for the specific code points that are allowed
 	  for registration.
 	</t>
 	<t>
@@ -279,17 +279,15 @@
 	  code points by assigning code points in the Unicode
 	  Standard. The IDNA2008 rules based on the Unicode Standard
 	  create a subset of these by assigning the PVALID derived
-	  property value to them. Registries (and others dealing with
-	  Internationalized Domain Names) are supposed to create an
-	  even smaller subset that ultimately is the set of code
-	  points that can be used in a particular registry.
+	  property value to them. DNS registries and other organizations that deal with
+	  IDNs are supposed to create their own
+	  subsets from IDNA2008 for use by those registries and organizations.
 	</t>
 	<t>
-	  There is further recommendation to be conservative when
-	  these subsets are calculated and to use the inclusion
-	  principle; this is explained
-	  in <xref target="SAC-084">SAC-084</xref>
-	  and <xref target="RFC6912">RFC 6912</xref>.
+	  <xref target="SAC-084">SAC-084</xref> and <xref target="RFC6912">RFC 6912</xref>
+	  recommend to DNS registries and other organizations to be conservative when
+	  creating their subsets are calculated, and to use the
+	  principle of creating subsets by inclusion.
 	</t>
       </section>
     </section>
