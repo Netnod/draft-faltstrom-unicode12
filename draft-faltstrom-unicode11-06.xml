@@ -67,8 +67,8 @@
 	related to the algorithm IDNA2008 specifies. IDNA2008 allows
 	adding exceptions to the algorithm for backward compatibility;
 	however, this document makes no such changes.
-	This document requests that IANA update the tables for IDNA2008 to
-	include Unicode 11.
+	Thus this document requests that IANA update the tables to
+	Unicode 11.
       </t>
       <t>
 	The document also recomments that all DNS registries continue the practice of
@@ -163,70 +163,64 @@
     <section title="Background">
       <section anchor="idna2008" title="IDNA2008 Documents">
 	<t>
-	  IDNA2008 consists of the following documents:
+	  IDNA2008 consists of the following documents.
+	  The documents in the set have informal names.
 	  <list style="symbols">
 	    <t>
-	      A document, <xref target="RFC5890">RFC 5890</xref>, containing
+	      <xref target="RFC5890">RFC 5890</xref>, informally
+	      called "Defs" or "Definitions", contains
 	      definitions and other material that are needed for
-	      understanding other documents in the set.  It is
-	      referred to informally in other documents in the set as
-	      "Defs" or "Definitions".
+	      understanding other documents in the set.
 	    </t>
 	    <t>
-	      A document, <xref target="RFC5891">RFC 5891</xref>, that
+	      <xref target="RFC5891">RFC 5891</xref>, informally called "Protocol",
 	      describes the core IDNA2008 protocol and its operations.
-	      It is to be interpreted in combination with the Bidi
-	      document, described immediately below.  It is referred
-	      to informally in other documents in the set as
-	      "Protocol".
+	      It needs to be interpreted in combination with the Bidi
+	      document (described below).
 	    </t>
 	    <t>
-	      A specification, <xref target="RFC5892">RFC 5892</xref>,
-	      of the categories and rules that identify the code
+	      <xref target="RFC5892">RFC 5892</xref>, informally called "Tables",
+	      lists the categories and rules that identify the code
 	      points allowed in a label written in native character
-	      form (defined more specifically as a "U-label"), based
+	      form (called a "U-label"), an is based
 	      originally on <xref target="Unicode-5.2.0">Unicode
 	      5.2.0</xref> code point assignments and additional rules
-	      unique to IDNA2008.  The Unicode-based rules are
+	      unique to IDNA2008.  The Unicode-based rules in RFC 4892 are
 	      expected to be stable across Unicode updates and hence
-	      independent of Unicode versions.  That specification
-	      obsoletes <xref target="RFC3491">RFC 3491</xref> and IDN
-	      use of the tables to which it refers.  It is referred to
-	      informally in other documents in the set as "Tables".
+	      independent of Unicode versions.  RFC 5892
+	      obsoletes <xref target="RFC3491">RFC 3491</xref>, and in particular the
+	      use of the tables to which it refers.
 	    </t>
 	    <t>
-	      A document, <xref target="RFC5893">RFC 5893</xref>, that
-	      specifies special rules (Bidi) for labels that contain
+	      <xref target="RFC5893">RFC 5893</xref>, informally called "Bidi",
+	      specifies special rules for labels that contain
 	      characters that are written from right to left.
 	    </t>
 	    <t>
-	      A document, <xref target="RFC5894">RFC 5894</xref>, that
+	      <xref target="RFC5894">RFC 5894</xref>, informally called "Rationale",
 	      provides an overview of the protocol and associated
-	      tables together with explanatory material and some
-	      rationale for the decisions that led to IDNA2008.  That
-	      document also contains advice for registry operations
-	      and those who use Internationalized Domain Names (IDNs).
-	      It is referred to informally in other documents in the
-	      set as "Rationale".
+	      tables, and gives explanatory material and some
+	      rationale for the decisions that led to IDNA2008.
+	      It also contains advice for DNS registry operators
+	      and others who use Internationalized Domain Names (IDNs).
 	    </t>
 	    <t>
-	      A document, <xref target="RFC5895">RFC 5895</xref>, that
+	      <xref target="RFC5895">RFC 5895</xref>, informally called "Mapping",
 	      discusses the issue of mapping characters into other
 	      characters and that provides guidance for doing so when
-	      that is appropriate.  That document, referred to
-	      informally as "Mapping", provides advice; it is not a
+	      that is appropriate.  RFC 5895 provides advice and is not a
 	      required part of IDNA.
 	    </t>
 	    <t>
-	      A document, <xref target="RFC6452">RFC 6452</xref>, that
-	      looks at some changes made
+	      <xref target="RFC6452">RFC 6452</xref>
+	      describes some changes made
 	      to <xref target="Unicode-6.0.0">Unicode 6.0.0</xref>
 	      that resulted in the derived property value change for
-	      the code points U+0CF1, U+0CF2 and U+19DA. The first two
-	      changed from DISALLOWED to PVALID, the last from PVALID
-	      to DISSALOWED. IETF came to the conclusion that no
-	      update is needed to <xref target="RFC5892">RFC
-	      5892</xref> based on the changes made
+	      the code points U+0CF1, U+0CF2 and U+19DA. U+0CF1 and U+0CF2
+	      changed from DISALLOWED to PVALID, while U+19DA changed from PVALID
+	      to DISSALOWED. The IETF concluded that no
+	      update to <xref target="RFC5892">RFC
+	      5892</xref> was needed based on the changes made
 	      in <xref target="Unicode-6.0.0">Unicode 6.0.0</xref>. As
 	      a result, the derived property value remained aligned
 	      with the Unicode Standard.
@@ -236,9 +230,9 @@
       </section>
       <section anchor="deployment" title="Deployment">
 	<t>
-	  The deployment of IDNA2008 is unfortunately quite
+	  The level of deployment of IDNA2008 is unfortunately quite
 	  diverse. The following lists some of the strategies that
-	  existing implementations are known to implement:
+	  existing implementations are known to use:
 	  <list style="symbols">
 	    <t>
 	      IDNA2003 as specified in <xref target="RFC3490">RFC
@@ -255,7 +249,7 @@
 	      algorithm specified in IDNA2008.
 	    </t>
 	    <t>
-	      Strict IDNA2008 following IANA which implies staying at
+	      Strict IDNA2008 following the current IANA tables, which implies staying at
 	      <xref target="Unicode-6.3.0">Unicode 6.3.0</xref> and
 	      treating later assigned code points as UNASSIGNED.
 	    </t>
@@ -263,7 +257,7 @@
 	      The IDNA2008 algorithm applied to whatever version of
 	      Unicode Standard exists in the operating system and/or
 	      libraries used, regardless of whether the version is
-	      later than Unicode version 6.3.0 or not.
+	      later than Unicode version 6.3.0.
 	    </t>
 	    <t>
 	      A mix between IDNA2003 and IDNA2008 according to local
@@ -271,11 +265,11 @@
 	      Technical Standard #46</xref>.
 	    </t>
 	  </list>
-	  The issue is further complicated by having a very diverse
+	  The issue is further complicated by having diverse
 	  implementations of the requirements
-	  in <xref target="RFC5894">RFC 5894</xref> by registry
-	  operators based on the IDNA2008 specification to create
-	  additional rules for what code points are allowed to be used
+	  in <xref target="RFC5894">RFC 5894</xref> by DNS registry
+	  operators, based on the IDNA2008 specification, but with
+	  additional rules for the specific code points that are allowed
 	  for registration.
 	</t>
 	<t>
@@ -283,17 +277,15 @@
 	  code points by assigning code points in the Unicode
 	  Standard. The IDNA2008 rules based on the Unicode Standard
 	  create a subset of these by assigning the PVALID derived
-	  property value to them. Registries (and others dealing with
-	  Internationalized Domain Names) are supposed to create an
-	  even smaller subset that ultimately is the set of code
-	  points that can be used in a particular registry.
+	  property value to them. DNS registries and other organizations that deal with
+	  IDNs are supposed to create their own
+	  subsets from IDNA2008 for use by those registries and organizations.
 	</t>
 	<t>
-	  There is further recommendation to be conservative when
-	  these subsets are calculated and to use the inclusion
-	  principle; this is explained
-	  in <xref target="SAC-084">SAC-084</xref>
-	  and <xref target="RFC6912">RFC 6912</xref>.
+	  <xref target="SAC-084">SAC-084</xref> and <xref target="RFC6912">RFC 6912</xref>
+	  recommend to DNS registries and other organizations to be conservative when
+	  creating their subsets are calculated, and to use the
+	  principle of creating subsets by inclusion.
 	</t>
       </section>
     </section>
