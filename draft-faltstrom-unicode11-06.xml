@@ -47,7 +47,7 @@
 	<email>paf@netnod.se</email>
       </address>
     </author>
-    <date month="December" year="2018" day="06"/>
+    <date month="December" year="2018" day="09"/>
     <area>Operations</area>
     <keyword>IDN</keyword>
     <keyword>IDNA</keyword>
@@ -97,26 +97,28 @@
       <t>
 	When the Unicode Standard is updated, new code points are assigned
 	and already-assigned code points can have their property values changed. 
-      <t><list style="symbols">
-      <t>
-	Assigning code points can create problems if the newly-assigned
-	code points are compositions of code points
-	changes (or would have changed) the normalization
-	functions. These problems can arise if the new code points change the matching algorithms
-	used and this in turn creates problems looking up already
-	stored strings.
+	<list style="symbols">
+	  <t>
+	    Assigning code points can create problems if the
+	    newly-assigned code points are compositions of code points
+	    changes (or would have changed) the normalization
+	    functions. These problems can arise if the new code points
+	    change the matching algorithms used and this in turn
+	    creates problems looking up already stored strings.
+	  </t>
+	  <t>
+	    Changing properties for already-assigned code points can
+	    create problems if the property change results in changes
+	    to the derived property value. This might make an earlier
+	    allowed code point whose derived property value is PVALID
+	    to then not be allowed anymore if its derived property
+	    value changes to DISALLOWED.  The problem can also happen
+	    the other way around: a code point that was not allowed
+	    (and thus is blocked in some situations) to suddenly end
+	    up being allowed.
+	  </t>
+	</list>
       </t>
-      <t>
-	Changing properties for already-assigned code points can
-	create problems if the property change results in changes to the derived
-	property value. This might make an earlier allowed
-	code point whose derived property value is PVALID to then not be allowed
-	anymore if its derived property value changes to DISALLOWED.
-	The problem can also happen the other way
-	around: a code point that was not allowed (and thus is
-	blocked in some situations) to suddenly end up being allowed.
-      </t>
-      </list></t>
       <t>
 	Historically, the IETF has accepted all implications of changes
 	in the Unicode Standard even though the changes have resulted
@@ -136,7 +138,7 @@
 	This document concludes
 	that no exceptions are to be added to IDNA2008 even if changes
 	in the derived property value is a result of the changes made
-	in Unicode between version 6.3.0 and 11.0.0,
+	in Unicode between version 6.3.0 and 11.0.0.
       </t>
       <t>
 	In 2015, the Internet Architecture Board (IAB)
