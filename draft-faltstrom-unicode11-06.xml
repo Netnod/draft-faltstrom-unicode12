@@ -57,24 +57,21 @@
     <keyword>Internet-Draft</keyword>
     <abstract>
       <t>
-	This document describes changes between Unicode 6.3.0 and
+	This document describes the changes between Unicode 6.3.0 and
 	Unicode 11.0.0 in the context of IDNA2008. It further suggests
-	for the IETF a path forward regarding ensuring IDNA2008
+	a path forward for the IETF to ensure IDNA2008
 	follows the evolution of the Unicode Standard.
       </t>
       <t>
-	In a few cases changes have been made in the Unicode Standard
-	related to the algorithm IDNA2008 specifies. IDNA2008 do give
-	the ability to add exceptions for backward compatibility to
-	the algorithm but the conclusions provided in this document
-	suggests no such changes.
-      </t>
-      <t>
+	Some changes have been made in the Unicode Standard
+	related to the algorithm IDNA2008 specifies. IDNA2008 allows
+	adding exceptions to the algorithm for backward compatibility;
+	however, this document makes no such changes.
 	Thus this document requests that IANA update the tables to
 	Unicode 11.
       </t>
       <t>
-	In addition, all DNS registries should continue the practice of
+	The document also recomments that all DNS registries continue the practice of
 	calculating a repertoire using conservatism and inclusion
 	principles.
       </t>
@@ -90,64 +87,65 @@
     <section anchor="intro" title="Introduction">
       <t>
 	The current version of Internationalized Domain Names for
-	Applications (IDNA) was largely completed in 2008, known
-	within the series and elsewhere as "IDNA2008" and is specified
-	in a series of documents (see Section
-	<xref target="idna2008"/>). The standard include an algorithm
+	Applications (IDNA) was largely completed in 2008, and is thus known
+	within as "IDNA2008". It is specified
+	in a series of documents listed in
+	<xref target="idna2008"/>. The IDNA2008 standard includes an algorithm
 	by which a derived property value is calculated based on the
-	properties defined in the Unicode Standard.
+	properties defined from the Unicode Standard.
       </t>
       <t>
-	When the Unicode Standard is updated code points are assigned
-	and property values might be changed for already assigned code
-	points.
+	When the Unicode Standard is updated, new code points are assigned
+	and already-assigned code points can have their property values changed. 
+      <t><list style="symbols">
+      <t>
+	Assigning code points can create problems if the newly-assigned
+	code points are compositions of code points
+	changes (or would have changed) the normalization
+	functions. These problems can arise if the new code points change the matching algorithms
+	used and this in turn creates problems looking up already
+	stored strings.
       </t>
       <t>
-	Assigning code points might create problems if the newly
-	assigned code points are compositions of code points so that
-	it either changes or would have changed the normalization
-	functions. This is because it changes the matching algorithms
-	used which in turn might create problems looking up already
-	stored strings in for example DNS.
+	Changing properties for already-assigned code points can
+	create problems if the property change results in changes to the derived
+	property value. This might make an earlier allowed
+	code point whose derived property value is PVALID to then not be allowed
+	anymore if its derived property value changes to DISALLOWED.
+	The problem can also happen the other way
+	around: a code point that was not allowed (and thus is
+	blocked in some situations) to suddenly end up being allowed.
       </t>
+      </list></t>
       <t>
-	Changing properties for already assigned code points might
-	create problems if the change results in the derived
-	property value changes. This might make an earlier allowed
-	code point (derived property value PVALID) not be allowed
-	anymore (derived property value DISALLOWED). Or the other way
-	around, a code point that was not allowed (and because of that
-	blocked in some situations) suddenly end up being allowed.
-      </t>
-      <t>
-	Historically the IETF has accepted all implications of changes
+	Historically, the IETF has accepted all implications of changes
 	in the Unicode Standard even though the changes have resulted
 	in problematic changes in the derived property value. The
-	primary reason for that is that staying with the Unicode
-	Standard has been viewed as important given the diversity in
+	primary reason for that choice is that staying with the Unicode
+	Standard has been viewed as important because of the diversity of
 	implementations already existing in the wild.
       </t>
       <t>
 	As described in <xref target="changes"/>, a few changes have
 	been made regarding certain attributes to code points in
 	Unicode between version 6.3.0 and 11.0.0. Such changes could
-	result in either a change in the derived property value for
-	the code point in question or no such change. In turn, if the
-	result is a change, it can be between any of the derived
-	property values except DISALLOWED. Also in this case, when
-	moving from version 6.3.0 to 11.0.0, this document concludes
+	result in a change in the derived property value for
+	the code point in question. If a change occurs,
+	and it is between any of the derived
+	property values except DISALLOWED, there is not a problem.
+	This document concludes
 	that no exceptions are to be added to IDNA2008 even if changes
 	in the derived property value is a result of the changes made
-	in Unicode.
+	in Unicode between version 6.3.0 and 11.0.0,
       </t>
       <t>
-	Specifically, the Internet Architecture Board did
-	issue <xref target="IAB">a statement</xref> which requested
-	IETF to resolve the issues related to the code point ARABIC
-	LETTER BEH WITH HAMZA ABOVE (U+08A1), introduced
-	in <xref target="Unicode-7.0.0">Unicode 7.0.0</xref>.  This
-	document resolves this issue and suggests IDNA2008 standard is
-	to follow the Unicode Standard and not
+	In 2015, the Internet Architecture Board (IAB)
+	issued <xref target="IAB">a statement</xref>  which requested
+	the IETF to resolve the issues related to the code point ARABIC
+	LETTER BEH WITH HAMZA ABOVE (U+08A1) that was introduced
+	in <xref target="Unicode-7.0.0">Unicode 7.0.0</xref>.  The current
+	document resolves this issue and suggests that the IDNA2008 standard
+	followsO the Unicode Standard and not
 	update <xref target="RFC5892">RFC 5892</xref> or any other
 	IDNA2008 RFCs.
       </t>
@@ -291,14 +289,14 @@
 	</t>
       </section>
     </section>
-    <section anchor="changes" title="Notable changes between Unicode 6.3.0 and 11.0.0">
-      <section title="Changes to Unicode 7.0.0">
+    <section anchor="changes" title="Notable Changes Between Unicode 6.3.0 and 11.0.0">
+      <section title="Changes in Unicode 7.0.0">
 	<t>
-	  The character ARABIC LETTER BEH WITH HAMZA ABOVE U+08A1 was
-	  introduced in Unicode 7.0.0. This was discussed in the IETF
-	  extensively and by IAB in <xref target="IAB">their
+	  The character ARABIC LETTER BEH WITH HAMZA ABOVE (U+08A1) was
+	  introduced in Unicode 7.0.0. This was discussed extensively in the IETF,
+	  and by the IAB in <xref target="IAB">their
 	  statement</xref> requesting the IETF to investigate the
-	  issue. Specifically IAB stated:
+	  issue. Specifically, the IAB stated:
 	</t>
 	<t>
 	  <list>
@@ -315,21 +313,21 @@
 	<t>
 	  The discussion in the IETF concluded that although it is
 	  possible to create "the same" character in multiple ways,
-	  the issue with U+08A1 is not unique.  In the case of U+08A1,
-	  it can be represented with the sequence ARABIC LETTER BEH
-	  (U+0628) and ARABIC HAMZA ABOVE (U+0654). Just like LATIN
-	  SMALL LETTER A WITH DIAERESIS (U+00E4) can be represented
-	  via the sequence LATIN SMALL LETTER A (U+0061), and
-	  COMBINING DIAERESIS (U+0308).  One difference between these
+	  the issue with U+08A1 is not unique.  The character U+08A1
+	  can be represented with the sequence ARABIC LETTER BEH
+	  (U+0628) and ARABIC HAMZA ABOVE (U+0654). This identical to LATIN
+	  SMALL LETTER A WITH DIAERESIS (U+00E4), that can be represented
+	  with the sequence LATIN SMALL LETTER A (U+0061) followed by
+	  COMBINING DIAERESIS (U+0308).  One difference between these two
 	  sequences is how they are treated in the normalization forms
 	  specified by the Unicode Consortium.
 	</t>
 	<t>
-	  As U+08A1 is discussed in 
+	  U+08A1 is discussed in 
 	  <xref target="I-D.freytag-troublesome-characters">draft-freytag-troublesome-characters</xref>
-	  and elsewhere. Regardless of whether those discussions ends
-	  in recommending including the code point in the repertoire
-	  of characters permissable for registration or not, it is
+	  and other Internet Drafts. Regardless of whether the discussion of those drafts ends
+	  in recommendations to include the code point in the repertoire
+	  of characters permissable for registration or not, it is still
 	  acceptable to allow the code point to have a derived
 	  property value of PVALID.
 	</t>
@@ -341,35 +339,35 @@
 	  property value.
 	</t>
       </section>
-      <section title="Changes to Unicode 11.0.0">
+      <section title="Changes in Unicode 11.0.0">
 	<t>
 	  <xref target="Unicode-11.0.0">The Unicode Standard Version
 	  11.0.0</xref> has included a
 	  <xref target="Changes-11.0.0">number of changes</xref> from
-	  version 10.0.0, specifically to UnicodeData.txt:
+	  version 10.0.0.
 	  <list style="symbols">
 	    <t>
-	      Entries were added for the 684 new characters, including
+	      684 new characters were added, including
 	      letters, combining marks, digits, symbols, and
 	      punctuation marks.
 	    </t>
 	    <t>
-	      Georgian letters in the ranges U+10D0..U+10FA,
-	      U+10FD..U+10FF were changed from Lo to Ll, to reflect
+	      Georgian letters in the ranges U+10D0..U+10FA and
+	      U+10FD..U+10FF had their General Properties changed from Lo to Ll, to reflect
 	      their status as the lowercase of new Georgian case
 	      pairs. Case mappings were also added.
 	    </t>
 	    <t>
-	      U+111C9 SHARADA SANDHI MARK was changed from Po to Mn,
+	      SHARADA SANDHI MARK (U+111C9 ) was changed from Po to Mn,
 	      and from bc=L to bc=NSM.
 	    </t>
 	    <t>
-	      U+11A07 ZANABAZAR SQUARE VOWEL SIGN AI and U+11A08
-	      ZANABZAR SQUARE VOWEL SIGN AU were corrected from Mc to
+	      The properties for ZANABAZAR SQUARE VOWEL SIGN AI (U+11A07) and
+	      ZANABZAR SQUARE VOWEL SIGN AU (U+11A08) were corrected from Mc to
 	      Mn.
 	    </t>
 	    <t>
-	      U+29A1 SPHERICAL ANGLE OPENING UP was changed to
+	      SPHERICAL ANGLE OPENING UP (U+29A1) was changed to
 	      Bidi_M=N.
 	    </t>
 	  </list>
@@ -383,9 +381,9 @@
 	    </t>
 	    <t>
 	      The Georgian letters in the ranges U+10D0..U+10FA and
-	      U+10FD..U+10FF have existed since before IDNA2008 was
+	      U+10FD..U+10FF existed before IDNA2008 was
 	      created.  Applying the IDNA2008 algorithm to the code
-	      points did assign the derived property value PVALID and
+	      points assigned the derived property value PVALID, and
 	      that value is unchanged even if the underlying Unicode
 	      properties have changed.
 	    </t>
@@ -393,26 +391,26 @@
 	      The U+111C9 SHARADA SANDHI MARK was added
 	      to <xref target="Unicode-8.0.0">Unicode
 	      8.0.0</xref>. Applying the IDNA2008 algorithm to the
-	      code point did assign the derived property value
+	      code point assigned the derived property value
 	      DISALLOWED. The changes in the underlying properties in
 	      the <xref target="Unicode-11.0.0">Unicode Standard
-	      Version 11.0.0</xref> make the derived property value
-	      change to PVALID which is an acceptable change.
+	      Version 11.0.0</xref> caused the derived property value to
+	      change to PVALID, which is an acceptable change.
 	    </t>
 	    <t>
-	      The characters U+11A07 ZANABAZAR SQUARE VOWEL SIGN AI
-	      and U+11A08 ZANABZAR SQUARE VOWEL SIGN AU were added to
+	      The characters ZANABAZAR SQUARE VOWEL SIGN AI (U+11A07)
+	      and ZANABZAR SQUARE VOWEL SIGN AU (U+11A08) were added to
 	      <xref target="Unicode-10.0.0">Unicode 10.0.0</xref>.
-	      Applying the IDNA2008 algorithm to the code points did
-	      assign the derived property value PVALID and that value
+	      Applying the IDNA2008 algorithm to the code points
+	      assigned the derived property value PVALID, and that value
 	      is unchanged even if the underlying Unicode properties
 	      have changed.
 	    </t>
 	    <t>
-	      U+29A1 SPHERICAL ANGLE OPENING UP have existed since
+	      SPHERICAL ANGLE OPENING UP (U+29A1) existed
 	      before IDNA2008 was created.  Applying the IDNA2008
-	      algorithm to the code point did assign the derived
-	      property value PVALID and that value is unchanged even
+	      algorithm to the code point assigned the derived
+	      property value PVALID, and that value is unchanged even
 	      if the underlying Unicode properties have changed.
 	    </t>
 	  </list>
@@ -421,32 +419,32 @@
     </section>
     <section title="Conclusion">
       <t>
-	As described in <xref target="changes"/> changes have been
+	As described in <xref target="changes"/>, changes have been
 	made to Unicode between version 6.3.0 and 11.0.0. Some changes
 	to specific characters changed their derived property
-	value. Others did not.  Given the diverse deployment described
+	value, while other changes did not.  Given the diverse deployment described
 	in <xref target="deployment"/> and the changes described,
-	including implications to normalization, the conclusion is to
+	including implications to normalization, the conclusion of this document is to
 	not add any exception rules to IDNA2008.
       </t>
       <t>
-	To increase overall harmonization in the use of
-	internationalized domain names, the author recommends that the
+	To increase overall harmonization in the use of IDNs,
+	this document recommends that the
 	derived property values MUST be calculated as specified in the
-	documents listed in section <xref target="idna2008"/> also
-	with code points in
+	documents listed in section <xref target="idna2008"/> and
+	with the code points in
 	<xref target="Unicode-11.0.0">Unicode Version 11.0.0</xref>.
       </t>
       <t>
-	All registries (and others) SHOULD calculate a repertoire
-	using the conservatism and inclusion principles as laid out
-	for example in in <xref target="SAC-084">SAC-084</xref>.
+	All DNS registries (and other organizatios) SHOULD calculate a repertoire
+	using the conservatism and inclusion principles, as described
+	in <xref target="SAC-084">SAC-084</xref> and similar documents.
       </t>
     </section>
     <section title="IANA Considerations">
       <t>
-	IANA is requested to update the registry of derived property
-	values after validation with the Appointed Expert that the
+	IANA is requested to update the IDNA Parameters registry of derived property
+	values, after the expert reviewer validates that the
 	derived property values are calculated correctly.
       </t>
     </section>
@@ -454,14 +452,14 @@
       <t>
 	This document makes recommendations regarding the use of the IDNA2008
 	algorithm for calculation of derived property values, based on the
-	current Unicode version. It also recommends that registries (and
+	current Unicode version. It also recommends that DNS registries (and
 	others dealing with Internationalized Domain Names) explicitly select
 	appropriate subsets of characters with the derived value of PVALID.
       </t>
       <t>
 	Not following these recommendations can lead to various
 	security issues. Specifically, allowing confusable characters
-	may lead to various phishing attacks. See Security
+	may lead to various phishing attacks, as described in the Security
 	Consideration Sections in the documents listed in section
 	<xref target="idna2008"/>.
       </t>
