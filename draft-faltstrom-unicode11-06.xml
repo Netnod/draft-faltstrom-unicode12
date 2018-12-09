@@ -57,24 +57,21 @@
     <keyword>Internet-Draft</keyword>
     <abstract>
       <t>
-	This document describes changes between Unicode 6.3.0 and
+	This document describes the changes between Unicode 6.3.0 and
 	Unicode 11.0.0 in the context of IDNA2008. It further suggests
-	for the IETF a path forward regarding ensuring IDNA2008
+	a path forward for the IETF to ensure IDNA2008
 	follows the evolution of the Unicode Standard.
       </t>
       <t>
-	In a few cases changes have been made in the Unicode Standard
-	related to the algorithm IDNA2008 specifies. IDNA2008 do give
-	the ability to add exceptions for backward compatibility to
-	the algorithm but the conclusions provided in this document
-	suggests no such changes.
+	Some changes have been made in the Unicode Standard
+	related to the algorithm IDNA2008 specifies. IDNA2008 allows
+	adding exceptions to the algorithm for backward compatibility;
+	however, this document makes no such changes.
+	This document requests that IANA update the tables for IDNA2008 to
+	include Unicode 11.
       </t>
       <t>
-	Thus this document requests that IANA update the tables to
-	Unicode 11.
-      </t>
-      <t>
-	In addition, all registries should continue the practice of
+	The document also recomments that all DNS registries continue the practice of
 	calculating a repertoire using conservatism and inclusion
 	principles.
       </t>
@@ -90,64 +87,65 @@
     <section anchor="intro" title="Introduction">
       <t>
 	The current version of Internationalized Domain Names for
-	Applications (IDNA) was largely completed in 2008, known
-	within the series and elsewhere as "IDNA2008" and is specified
-	in a series of documents (see Section
-	<xref target="idna2008"/>). The standard include an algorithm
+	Applications (IDNA) was largely completed in 2008, and is thus known
+	within as "IDNA2008". It is specified
+	in a series of documents listed in
+	<xref target="idna2008"/>. The IDNA2008 standard includes an algorithm
 	by which a derived property value is calculated based on the
-	properties defined in the Unicode Standard.
+	properties defined from the Unicode Standard.
       </t>
       <t>
-	When the Unicode Standard is updated code points are assigned
-	and property values might be changed for already assigned code
-	points.
+	When the Unicode Standard is updated, new code points are assigned
+	and already-assigned code points can have their property values changed. 
+      <t><list style="symbols">
+      <t>
+	Assigning code points can create problems if the newly-assigned
+	code points are compositions of code points
+	changes (or would have changed) the normalization
+	functions. These problems can arise if the new code points change the matching algorithms
+	used and this in turn creates problems looking up already
+	stored strings.
       </t>
       <t>
-	Assigning code points might create problems if the newly
-	assigned code points are compositions of code points so that
-	it either changes or would have changed the normalization
-	functions. This is because it changes the matching algorithms
-	used which in turn might create problems looking up already
-	stored strings in for example DNS.
+	Changing properties for already-assigned code points can
+	create problems if the property change results in changes to the derived
+	property value. This might make an earlier allowed
+	code point whose derived property value is PVALID to then not be allowed
+	anymore if its derived property value changes to DISALLOWED.
+	The problem can also happen the other way
+	around: a code point that was not allowed (and thus is
+	blocked in some situations) to suddenly end up being allowed.
       </t>
+      </list></t>
       <t>
-	Changing properties for already assigned code points might
-	create problems if the change results in the derived
-	property value changes. This might make an earlier allowed
-	code point (derived property value PVALID) not be allowed
-	anymore (derived property value DISALLOWED). Or the other way
-	around, a code point that was not allowed (and because of that
-	blocked in some situations) suddenly end up being allowed.
-      </t>
-      <t>
-	Historically the IETF has accepted all implications of changes
+	Historically, the IETF has accepted all implications of changes
 	in the Unicode Standard even though the changes have resulted
 	in problematic changes in the derived property value. The
-	primary reason for that is that staying with the Unicode
-	Standard has been viewed as important given the diversity in
+	primary reason for that choice is that staying with the Unicode
+	Standard has been viewed as important because of the diversity of
 	implementations already existing in the wild.
       </t>
       <t>
 	As described in <xref target="changes"/>, a few changes have
 	been made regarding certain attributes to code points in
 	Unicode between version 6.3.0 and 11.0.0. Such changes could
-	result in either a change in the derived property value for
-	the code point in question or no such change. In turn, if the
-	result is a change, it can be between any of the derived
-	property values except DISALLOWED. Also in this case, when
-	moving from version 6.3.0 to 11.0.0, this document concludes
+	result in a change in the derived property value for
+	the code point in question. If a change occurs,
+	and it is between any of the derived
+	property values except DISALLOWED, there is not a problem.
+	This document concludes
 	that no exceptions are to be added to IDNA2008 even if changes
 	in the derived property value is a result of the changes made
-	in Unicode.
+	in Unicode between version 6.3.0 and 11.0.0,
       </t>
       <t>
-	Specifically, the Internet Architecture Board did
-	issue <xref target="IAB">a statement</xref> which requested
-	IETF to resolve the issues related to the code point ARABIC
-	LETTER BEH WITH HAMZA ABOVE (U+08A1), introduced
-	in <xref target="Unicode-7.0.0">Unicode 7.0.0</xref>.  This
-	document resolves this issue and suggests IDNA2008 standard is
-	to follow the Unicode Standard and not
+	In 2015, the Internet Architecture Board (IAB)
+	issued <xref target="IAB">a statement</xref>  which requested
+	the IETF to resolve the issues related to the code point ARABIC
+	LETTER BEH WITH HAMZA ABOVE (U+08A1) that was introduced
+	in <xref target="Unicode-7.0.0">Unicode 7.0.0</xref>.  The current
+	document resolves this issue and suggests that the IDNA2008 standard
+	followsO the Unicode Standard and not
 	update <xref target="RFC5892">RFC 5892</xref> or any other
 	IDNA2008 RFCs.
       </t>
