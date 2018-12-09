@@ -71,15 +71,16 @@
 	Unicode 11.
       </t>
       <t>
-	The document also recomments that all DNS registries continue the practice of
-	calculating a repertoire using conservatism and inclusion
-	principles.
+	The document also recomments that all DNS registries continue
+	the practice of calculating a repertoire using conservatism
+	and inclusion principles.
       </t>
       <t>
 	TO BE REMOVED AT TIME OF PUBLICATION AS AN RFC:
       </t>
       <t>
-	This document is discussed on the i18nrp@ietf.org mailing list of the IETF.
+	This document is discussed on the i18nrp@ietf.org mailing list
+	of the IETF.
       </t>
     </abstract>
   </front>
