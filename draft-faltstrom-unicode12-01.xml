@@ -40,10 +40,10 @@
 <?rfc comments='yes' ?>
 <?rfc inline='yes' ?>  
 
-<rfc docName="draft-faltstrom-unicode11-08" ipr="trust200902" category="std">
+<rfc docName="draft-faltstrom-unicode12-00" ipr="trust200902" category="std">
   <front>
-    <title abbrev="IDNA2008 and Unicode 11">
-      IDNA2008 and Unicode 11.0.0
+    <title abbrev="IDNA2008 and Unicode 12">
+      IDNA2008 and Unicode 12.0.0
     </title>
     <author fullname="Patrik Faltstrom" initials="P." surname="Faltstrom">
       <organization abbrev="Netnod">Netnod</organization>
@@ -62,14 +62,14 @@
     <abstract>
       <t>
 	This document describes the changes between Unicode 6.3.0 and
-	Unicode 11.0.0 in the context of IDNA2008.  Some additions and
+	Unicode 12.0.0 in the context of IDNA2008.  Some additions and
 	changes have been made in the Unicode Standard that affect the
 	values produced by the algorithm IDNA2008 specifies. Although
 	IDNA2008 allows adding exceptions to the algorithm for
 	backward compatibility; however, this document does not add
 	any such exceptions. This document provides the necessary
 	tables to IANA to make its database consisstent with Unicode
-	11.0.0.
+	12.0.0.
       </t>
       <t>
 	To improve understanding, this document describes systems that
@@ -140,11 +140,11 @@
       <t>
 	As described in <xref target="changes"/>, more changes have
 	been made to code points between Unicode version 6.0 and
-	11.0.0 so that the derived property value have been changed in
+	12.0.0 so that the derived property value have been changed in
 	an incompatible way.  This document concludes that no
 	exceptions are to be added to IDNA2008 even though there are changes in the
 	derived property value is a result of the changes made in
-	Unicode between version 6.2.0 and 11.0.0.
+	Unicode between version 6.2.0 and 12.0.0.
       </t>
       <t>
 	Further, in 2015, the Internet Architecture Board (IAB)
@@ -344,7 +344,7 @@
 	</t>
       </section>
     </section>
-    <section anchor="changes" title="Notable Changes Between Unicode 6.2.0 and 11.0.0">
+    <section anchor="changes" title="Notable Changes Between Unicode 6.2.0 and 12.0.0">
       <section title="Changes between Unicode 6.2.0 and 7.0.0">
 	<t>
 	  <list>
@@ -547,32 +547,63 @@
 	  </list>
 	</t>
       </section>
+      <section title="Changes between Unicode 11.0.0 and 12.0.0">
+	<t>
+	  <list>
+	    <t>
+	      Change in number of chacters in each category:
+	    </t>
+	    <t>
+	      Code points that changed derived property value: 0
+	    </t>
+	    <t>
+	      PVALID changed from 122734 to 123006 (+272)
+	    </t>
+	    <t>
+	      UNASSIGNED changed from 837091 to 836537 (-554)
+	    </t>
+	    <t>
+	      CONTEXTJ did not change, at 2
+	    </t>
+	    <t>
+	      CONTEXTO did not change, at 25
+	    </t>
+	    <t>
+	      DISALLOWED changed from from 154260 to 154542 (+282)
+	    </t>
+	    <t>
+	      TOTAL did not change, at 1114112
+	    </t>
+	  </list>
+	</t>
+      </section>
     </section>
     <section anchor="SHARADA" title="U+111C9 SHARADA SANDHI MARK">
       <t>
 	As one can see in <xref target="changes"/>, there is one incompatible
-	change made between Unicode 6.2.0 and 11.0.0, the code point U+111C9.
+	change made between Unicode 6.2.0 and 12.0.0, the code point U+111C9.
 	It has changed derived property value from DISALLOWED to PVALID. In
 	situations like these, IDNA2008 allow for addition of rules to
 	<xref target="RFC5892">RFC 5892</xref> section
 	2.7. (BackwardCompatible (G)).  The code point if being
 	accepted might due to implementations of IDNA2008 based on
-	older versions of Unicode 11.0.0 be rejected. As the character
-	is rarely used outside of the group of Sharada specialist, and
-	used in some records for indicating sandhi breaks, the
-	conclusion is that it could be added as an exception as well
-	as change property value as the use of the code point is
-	limited outside a special community.  As including an
-	exception would require implementation changes in deployed
-	implementations of IDNA20008, the editor proposes that such a
-	BackwardCompatible rule NOT to be added to IDNA2008.
+	older versions of Unicode than 11.0.0 be rejected. As the
+	character is rarely used outside of the group of Sharada
+	specialist, and used in some records for indicating sandhi
+	breaks, the conclusion is that it could be added as an
+	exception as well as change property value as the use of the
+	code point is limited outside a special community.  As
+	including an exception would require implementation changes in
+	deployed implementations of IDNA20008, the editor proposes
+	that such a BackwardCompatible rule NOT to be added to
+	IDNA2008.
       </t>
     </section>
     <section title="Conclusion">
       <t>
 	As described in <xref target="changes"/> and
 	<xref target="SHARADA"/>, changes have been made to Unicode
-	between version 6.2.0 and 11.0.0. Some changes to specific
+	between version 6.2.0 and 12.0.0. Some changes to specific
 	characters changed their derived property value, while other
 	changes did not.  Given what is described in
 	<xref target="deployment"/> and the changes described,
@@ -600,7 +631,7 @@
       <t>
 	This document makes recommendations regarding the use of the
 	IDNA2008 algorithm for calculation of derived property values,
-	based on the Unicode version 11.0.0. This recommendation do not
+	based on the Unicode version 12.0.0. This recommendation do not
 	say anything about what recommendations to make for future
 	versions of the Unicode Standard.
       </t>
@@ -772,13 +803,24 @@
 	<seriesInfo name="The Unicode Standard, Version 11.0.0"
 		    value="ISBN 978-1-936213-19-1" />
       </reference>
-      <reference anchor="UTS-46">
+      <reference anchor="Unicode-12.0.0">
 	<front>
-          <title>Unicode Technical Standard #46, Version 11.0.0</title>
+          <title>The Unicode Standard, Version 12.0.0</title>
           <author>
             <organization>The Unicode Consortium</organization>
           </author>
-          <date month="May" year="2018" />
+          <date month="March" year="2019" />
+        </front>
+	<seriesInfo name="The Unicode Standard, Version 12.0.0"
+		    value="ISBN 978-1-936213-22-1" />
+      </reference>
+      <reference anchor="UTS-46">
+	<front>
+          <title>Unicode Technical Standard #46, Version 12.0.0</title>
+          <author>
+            <organization>The Unicode Consortium</organization>
+          </author>
+          <date month="March" year="2019" />
         </front>
 	<seriesInfo name="UNICODE IDNA COMPATIBILITY PROCESSING"
 		    value="http://www.unicode.org/reports/tr46/" />
@@ -1182,7 +1224,73 @@ A8FE..A8FF  ; PVALID      # DEVANAGARI LETTER AY..DEVANAGARI VOWEL SIGN
 1F9C1..1F9C2; DISALLOWED  # CUPCAKE..SALT SHAKER
 1F9E7..1F9FF; DISALLOWED  # RED GIFT ENVELOPE..NAZAR AMULET
 </artwork></figure></section>
-<section title="Code points in Unicode Character Database (UCD) format for Unicode 11.0.0">
+<section title="Changes from Unicode 11.0.0 to Unicode 12.0.0">
+  <t>
+    Changes from derived property value UNASSIGNED to either
+    PVALID or DISALLOWED.
+  </t>
+<figure><artwork>
+0C77..0C7F  ; DISALLOWED  # TELUGU SIGN SIDDHAM..TELUGU SIGN TUUMU
+0E86..0E8A  ; PVALID      # LAO LETTER PALI GHA..LAO LETTER SO TAM
+0E8C..0EA3  ; PVALID      # LAO LETTER PALI JHA..LAO LETTER LO LING
+0EA7..0EB2  ; PVALID      # LAO LETTER WO..LAO VOWEL SIGN AA
+0EB4..0EBD  ; PVALID      # LAO VOWEL SIGN I..LAO SEMIVOWEL SIGN NYO
+1CD4..1CFA  ; PVALID      # VEDIC SIGN YAJURVEDIC MIDLINE SVARITA..VEDIC
+2B98..2C2E  ; DISALLOWED  # THREE-D TOP-LIGHTED LEFTWARDS EQUILATERAL AR
+2E30..2E4F  ; DISALLOWED  # RING POINT..CORNISH VERSE DIVIDER
+A7BA        ; DISALLOWED  # LATIN CAPITAL LETTER GLOTTAL A
+A7BB        ; PVALID      # LATIN SMALL LETTER GLOTTAL A
+A7BC        ; DISALLOWED  # LATIN CAPITAL LETTER GLOTTAL I
+A7BD        ; PVALID      # LATIN SMALL LETTER GLOTTAL I
+A7BE        ; DISALLOWED  # LATIN CAPITAL LETTER GLOTTAL U
+A7BF        ; PVALID      # LATIN SMALL LETTER GLOTTAL U
+A7C2        ; DISALLOWED  # LATIN CAPITAL LETTER ANGLICANA W
+A7C3        ; PVALID      # LATIN SMALL LETTER ANGLICANA W
+A7C4..A7C6  ; DISALLOWED  # LATIN CAPITAL LETTER C WITH PALATAL HOOK..LA
+AB60..AB67  ; PVALID      # LATIN SMALL LETTER SAKHA YAT..LATIN SMALL LE
+10FE0..10FF6; PVALID      # ELYMAIC LETTER ALEPH..ELYMAIC LIGATURE ZAYIN
+1145E..1145F; PVALID      # NEWA SANDHI MARK..NEWA LETTER VEDIC ANUSVARA
+11680..116B8; PVALID      # TAKRI LETTER A..TAKRI LETTER ARCHAIC KHA
+119A0..119A7; PVALID      # NANDINAGARI LETTER A..NANDINAGARI LETTER VOC
+119AA..119D7; PVALID      # NANDINAGARI LETTER E..NANDINAGARI VOWEL SIGN
+119DA..119E1; PVALID      # NANDINAGARI VOWEL SIGN E..NANDINAGARI SIGN A
+119E2       ; DISALLOWED  # NANDINAGARI SIGN SIDDHAM
+119E3..119E4; PVALID      # NANDINAGARI HEADSTROKE..NANDINAGARI VOWEL SI
+11A50..11A99; PVALID      # SOYOMBO LETTER A..SOYOMBO SUBJOINER
+11FC0..11FF1; DISALLOWED  # TAMIL FRACTION ONE THREE-HUNDRED-AND-TWENTIE
+11FFF       ; DISALLOWED  # TAMIL PUNCTUATION END OF TEXT
+13430..13438; DISALLOWED  # EGYPTIAN HIEROGLYPH VERTICAL JOINER..EGYPTIA
+16F00..16F4A; PVALID      # MIAO LETTER PA..MIAO LETTER RTE
+16F4F..16F87; PVALID      # MIAO SIGN CONSONANT MODIFIER BAR..MIAO VOWEL
+16FE2       ; DISALLOWED  # OLD CHINESE HOOK MARK
+16FE3       ; PVALID      # OLD CHINESE ITERATION MARK
+17000..187F7; PVALID      # &lt;Tangut Ideograph&gt;..&lt;Tangut Ideograph&gt;
+1B150..1B152; PVALID      # HIRAGANA LETTER SMALL WI..HIRAGANA LETTER SM
+1B164..1B167; PVALID      # KATAKANA LETTER SMALL WI..KATAKANA LETTER SM
+1E100..1E12C; PVALID      # NYIAKENG PUACHUE HMONG LETTER MA..NYIAKENG P
+1E130..1E13D; PVALID      # NYIAKENG PUACHUE HMONG TONE-B..NYIAKENG PUAC
+1E140..1E149; PVALID      # NYIAKENG PUACHUE HMONG DIGIT ZERO..NYIAKENG 
+1E14E       ; PVALID      # NYIAKENG PUACHUE HMONG LOGOGRAM NYAJ
+1E14F       ; DISALLOWED  # NYIAKENG PUACHUE HMONG CIRCLED CA
+1E2C0..1E2F9; PVALID      # WANCHO LETTER AA..WANCHO DIGIT NINE
+1E2FF       ; DISALLOWED  # WANCHO NGUN SIGN
+1E922..1E94B; PVALID      # ADLAM SMALL LETTER ALIF..ADLAM NASALIZATION 
+1ED01..1ED3D; DISALLOWED  # OTTOMAN SIYAQ NUMBER ONE..OTTOMAN SIYAQ FRAC
+1F110..1F16C; DISALLOWED  # PARENTHESIZED LATIN CAPITAL LETTER A..RAISED
+1F300..1F6D5; DISALLOWED  # CYCLONE..HINDU TEMPLE
+1F6F0..1F6FA; DISALLOWED  # SATELLITE..AUTO RICKSHAW
+1F7E0..1F7EB; DISALLOWED  # LARGE ORANGE CIRCLE..LARGE BROWN SQUARE
+1F90D..1F971; DISALLOWED  # WHITE HEART..YAWNING FACE
+1F97A..1F9A2; DISALLOWED  # FACE WITH PLEADING EYES..SWAN
+1F9A5..1F9AA; DISALLOWED  # SLOTH..OYSTER
+1F9AE..1F9CA; DISALLOWED  # GUIDE DOG..ICE CUBE
+1F9CD..1FA53; DISALLOWED  # STANDING PERSON..BLACK CHESS KNIGHT-BISHOP
+1FA70..1FA73; DISALLOWED  # BALLET SHOES..SHORTS
+1FA78..1FA7A; DISALLOWED  # DROP OF BLOOD..STETHOSCOPE
+1FA80..1FA82; DISALLOWED  # YO-YO..PARACHUTE
+1FA90..1FA95; DISALLOWED  # RINGED PLANET..BANJO
+</artwork></figure></section>
+<section title="Code points in Unicode Character Database (UCD) format for Unicode 12.0.0">
 <figure><artwork>
 0000..002C  ; DISALLOWED  # &lt;control&gt;..COMMA
 002D        ; PVALID      # HYPHEN-MINUS
@@ -2006,8 +2114,8 @@ A8FE..A8FF  ; PVALID      # DEVANAGARI LETTER AY..DEVANAGARI VOWEL SIGN
 0C60..0C63  ; PVALID      # TELUGU LETTER VOCALIC RR..TELUGU VOWEL SIGN 
 0C64..0C65  ; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 0C66..0C6F  ; PVALID      # TELUGU DIGIT ZERO..TELUGU DIGIT NINE
-0C70..0C77  ; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
-0C78..0C7F  ; DISALLOWED  # TELUGU FRACTION DIGIT ZERO FOR ODD POWERS OF
+0C70..0C76  ; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+0C77..0C7F  ; DISALLOWED  # TELUGU SIGN SIDDHAM..TELUGU SIGN TUUMU
 0C80..0C83  ; PVALID      # KANNADA SIGN SPACING CANDRABINDU..KANNADA SI
 0C84        ; DISALLOWED  # KANNADA SIGN SIDDHAM
 0C85..0C8C  ; PVALID      # KANNADA LETTER A..KANNADA LETTER VOCALIC L
@@ -2095,30 +2203,16 @@ A8FE..A8FF  ; PVALID      # DEVANAGARI LETTER AY..DEVANAGARI VOWEL SIGN
 0E81..0E82  ; PVALID      # LAO LETTER KO..LAO LETTER KHO SUNG
 0E83        ; UNASSIGNED  # &lt;reserved&gt;
 0E84        ; PVALID      # LAO LETTER KHO TAM
-0E85..0E86  ; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
-0E87..0E88  ; PVALID      # LAO LETTER NGO..LAO LETTER CO
-0E89        ; UNASSIGNED  # &lt;reserved&gt;
-0E8A        ; PVALID      # LAO LETTER SO TAM
-0E8B..0E8C  ; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
-0E8D        ; PVALID      # LAO LETTER NYO
-0E8E..0E93  ; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
-0E94..0E97  ; PVALID      # LAO LETTER DO..LAO LETTER THO TAM
-0E98        ; UNASSIGNED  # &lt;reserved&gt;
-0E99..0E9F  ; PVALID      # LAO LETTER NO..LAO LETTER FO SUNG
-0EA0        ; UNASSIGNED  # &lt;reserved&gt;
-0EA1..0EA3  ; PVALID      # LAO LETTER MO..LAO LETTER LO LING
+0E85        ; UNASSIGNED  # &lt;reserved&gt;
+0E86..0E8A  ; PVALID      # LAO LETTER PALI GHA..LAO LETTER SO TAM
+0E8B        ; UNASSIGNED  # &lt;reserved&gt;
+0E8C..0EA3  ; PVALID      # LAO LETTER PALI JHA..LAO LETTER LO LING
 0EA4        ; UNASSIGNED  # &lt;reserved&gt;
 0EA5        ; PVALID      # LAO LETTER LO LOOT
 0EA6        ; UNASSIGNED  # &lt;reserved&gt;
-0EA7        ; PVALID      # LAO LETTER WO
-0EA8..0EA9  ; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
-0EAA..0EAB  ; PVALID      # LAO LETTER SO SUNG..LAO LETTER HO SUNG
-0EAC        ; UNASSIGNED  # &lt;reserved&gt;
-0EAD..0EB2  ; PVALID      # LAO LETTER O..LAO VOWEL SIGN AA
+0EA7..0EB2  ; PVALID      # LAO LETTER WO..LAO VOWEL SIGN AA
 0EB3        ; DISALLOWED  # LAO VOWEL SIGN AM
-0EB4..0EB9  ; PVALID      # LAO VOWEL SIGN I..LAO VOWEL SIGN UU
-0EBA        ; UNASSIGNED  # &lt;reserved&gt;
-0EBB..0EBD  ; PVALID      # LAO VOWEL SIGN MAI KON..LAO SEMIVOWEL SIGN N
+0EB4..0EBD  ; PVALID      # LAO VOWEL SIGN I..LAO SEMIVOWEL SIGN NYO
 0EBE..0EBF  ; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 0EC0..0EC4  ; PVALID      # LAO VOWEL SIGN E..LAO VOWEL SIGN AI
 0EC5        ; UNASSIGNED  # &lt;reserved&gt;
@@ -2358,8 +2452,8 @@ A8FE..A8FF  ; PVALID      # DEVANAGARI LETTER AY..DEVANAGARI VOWEL SIGN
 1CC8..1CCF  ; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 1CD0..1CD2  ; PVALID      # VEDIC TONE KARSHANA..VEDIC TONE PRENKHA
 1CD3        ; DISALLOWED  # VEDIC SIGN NIHSHVASA
-1CD4..1CF9  ; PVALID      # VEDIC SIGN YAJURVEDIC MIDLINE SVARITA..VEDIC
-1CFA..1CFF  ; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+1CD4..1CFA  ; PVALID      # VEDIC SIGN YAJURVEDIC MIDLINE SVARITA..VEDIC
+1CFB..1CFF  ; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 1D00..1D2B  ; PVALID      # LATIN LETTER SMALL CAPITAL A..CYRILLIC LETTE
 1D2C..1D2E  ; DISALLOWED  # MODIFIER LETTER CAPITAL A..MODIFIER LETTER C
 1D2F        ; PVALID      # MODIFIER LETTER CAPITAL BARRED B
@@ -2718,11 +2812,7 @@ A8FE..A8FF  ; PVALID      # DEVANAGARI LETTER AY..DEVANAGARI VOWEL SIGN
 2B74..2B75  ; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 2B76..2B95  ; DISALLOWED  # NORTH WEST TRIANGLE-HEADED ARROW TO BAR..RIG
 2B96..2B97  ; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
-2B98..2BC8  ; DISALLOWED  # THREE-D TOP-LIGHTED LEFTWARDS EQUILATERAL AR
-2BC9        ; UNASSIGNED  # &lt;reserved&gt;
-2BCA..2BFE  ; DISALLOWED  # TOP HALF BLACK CIRCLE..REVERSED RIGHT ANGLE
-2BFF        ; UNASSIGNED  # &lt;reserved&gt;
-2C00..2C2E  ; DISALLOWED  # GLAGOLITIC CAPITAL LETTER AZU..GLAGOLITIC CA
+2B98..2C2E  ; DISALLOWED  # THREE-D TOP-LIGHTED LEFTWARDS EQUILATERAL AR
 2C2F        ; UNASSIGNED  # &lt;reserved&gt;
 2C30..2C5E  ; PVALID      # GLAGOLITIC SMALL LETTER AZU..GLAGOLITIC SMAL
 2C5F        ; UNASSIGNED  # &lt;reserved&gt;
@@ -2881,8 +2971,8 @@ A8FE..A8FF  ; PVALID      # DEVANAGARI LETTER AY..DEVANAGARI VOWEL SIGN
 2DE0..2DFF  ; PVALID      # COMBINING CYRILLIC LETTER BE..COMBINING CYRI
 2E00..2E2E  ; DISALLOWED  # RIGHT ANGLE SUBSTITUTION MARKER..REVERSED QU
 2E2F        ; PVALID      # VERTICAL TILDE
-2E30..2E4E  ; DISALLOWED  # RING POINT..PUNCTUS ELEVATUS MARK
-2E4F..2E7F  ; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+2E30..2E4F  ; DISALLOWED  # RING POINT..CORNISH VERSE DIVIDER
+2E50..2E7F  ; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 2E80..2E99  ; DISALLOWED  # CJK RADICAL REPEAT..CJK RADICAL RAP
 2E9A        ; UNASSIGNED  # &lt;reserved&gt;
 2E9B..2EF3  ; DISALLOWED  # CJK RADICAL CHOKE..CJK RADICAL C-SIMPLIFIED 
@@ -3154,7 +3244,17 @@ A7B6        ; DISALLOWED  # LATIN CAPITAL LETTER OMEGA
 A7B7        ; PVALID      # LATIN SMALL LETTER OMEGA
 A7B8        ; DISALLOWED  # LATIN CAPITAL LETTER U WITH STROKE
 A7B9        ; PVALID      # LATIN SMALL LETTER U WITH STROKE
-A7BA..A7F6  ; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+A7BA        ; DISALLOWED  # LATIN CAPITAL LETTER GLOTTAL A
+A7BB        ; PVALID      # LATIN SMALL LETTER GLOTTAL A
+A7BC        ; DISALLOWED  # LATIN CAPITAL LETTER GLOTTAL I
+A7BD        ; PVALID      # LATIN SMALL LETTER GLOTTAL I
+A7BE        ; DISALLOWED  # LATIN CAPITAL LETTER GLOTTAL U
+A7BF        ; PVALID      # LATIN SMALL LETTER GLOTTAL U
+A7C0..A7C1  ; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+A7C2        ; DISALLOWED  # LATIN CAPITAL LETTER ANGLICANA W
+A7C3        ; PVALID      # LATIN SMALL LETTER ANGLICANA W
+A7C4..A7C6  ; DISALLOWED  # LATIN CAPITAL LETTER C WITH PALATAL HOOK..LA
+A7C7..A7F6  ; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 A7F7        ; PVALID      # LATIN EPIGRAPHIC LETTER SIDEWAYS I
 A7F8..A7F9  ; DISALLOWED  # MODIFIER LETTER CAPITAL H WITH STROKE..MODIF
 A7FA..A827  ; PVALID      # LATIN LETTER SMALL CAPITAL TURNED M..SYLOTI 
@@ -3217,8 +3317,8 @@ AB28..AB2E  ; PVALID      # ETHIOPIC SYLLABLE BBA..ETHIOPIC SYLLABLE BBO
 AB2F        ; UNASSIGNED  # &lt;reserved&gt;
 AB30..AB5A  ; PVALID      # LATIN SMALL LETTER BARRED ALPHA..LATIN SMALL
 AB5B..AB5F  ; DISALLOWED  # MODIFIER BREVE WITH INVERTED BREVE..MODIFIER
-AB60..AB65  ; PVALID      # LATIN SMALL LETTER SAKHA YAT..GREEK LETTER S
-AB66..AB6F  ; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+AB60..AB67  ; PVALID      # LATIN SMALL LETTER SAKHA YAT..LATIN SMALL LE
+AB68..AB6F  ; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 AB70..ABBF  ; DISALLOWED  # CHEROKEE SMALL LETTER A..CHEROKEE SMALL LETT
 ABC0..ABEA  ; PVALID      # MEETEI MAYEK LETTER KOK..MEETEI MAYEK VOWEL 
 ABEB        ; DISALLOWED  # MEETEI MAYEK CHEIKHEI
@@ -3482,7 +3582,9 @@ FFF9..FFFF  ; DISALLOWED  # INTERLINEAR ANNOTATION ANCHOR..&lt;noncharacter
 10F28..10F2F; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 10F30..10F50; PVALID      # SOGDIAN LETTER ALEPH..SOGDIAN COMBINING STRO
 10F51..10F59; DISALLOWED  # SOGDIAN NUMBER ONE..SOGDIAN PUNCTUATION HALF
-10F5A..10FFF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+10F5A..10FDF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+10FE0..10FF6; PVALID      # ELYMAIC LETTER ALEPH..ELYMAIC LIGATURE ZAYIN
+10FF7..10FFF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 11000..11046; PVALID      # BRAHMI SIGN CANDRABINDU..BRAHMI VIRAMA
 11047..1104D; DISALLOWED  # BRAHMI DANDA..BRAHMI PUNCTUATION LOTUS
 1104E..11051; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
@@ -3578,8 +3680,8 @@ FFF9..FFFF  ; DISALLOWED  # INTERLINEAR ANNOTATION ANCHOR..&lt;noncharacter
 1145B       ; DISALLOWED  # NEWA PLACEHOLDER MARK
 1145C       ; UNASSIGNED  # &lt;reserved&gt;
 1145D       ; DISALLOWED  # NEWA INSERTION SIGN
-1145E       ; PVALID      # NEWA SANDHI MARK
-1145F..1147F; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+1145E..1145F; PVALID      # NEWA SANDHI MARK..NEWA LETTER VEDIC ANUSVARA
+11460..1147F; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 11480..114C5; PVALID      # TIRHUTA ANJI..TIRHUTA GVANG
 114C6       ; DISALLOWED  # TIRHUTA ABBREVIATION SIGN
 114C7       ; PVALID      # TIRHUTA OM
@@ -3600,8 +3702,8 @@ FFF9..FFFF  ; DISALLOWED  # INTERLINEAR ANNOTATION ANCHOR..&lt;noncharacter
 1165A..1165F; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 11660..1166C; DISALLOWED  # MONGOLIAN BIRGA WITH ORNAMENT..MONGOLIAN TUR
 1166D..1167F; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
-11680..116B7; PVALID      # TAKRI LETTER A..TAKRI SIGN NUKTA
-116B8..116BF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+11680..116B8; PVALID      # TAKRI LETTER A..TAKRI LETTER ARCHAIC KHA
+116B9..116BF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 116C0..116C9; PVALID      # TAKRI DIGIT ZERO..TAKRI DIGIT NINE
 116CA..116FF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 11700..1171A; PVALID      # AHOM LETTER KA..AHOM LETTER ALTERNATE BA
@@ -3619,14 +3721,20 @@ FFF9..FFFF  ; DISALLOWED  # INTERLINEAR ANNOTATION ANCHOR..&lt;noncharacter
 118EA..118F2; DISALLOWED  # WARANG CITI NUMBER TEN..WARANG CITI NUMBER N
 118F3..118FE; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 118FF       ; PVALID      # WARANG CITI OM
-11900..119FF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+11900..1199F; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+119A0..119A7; PVALID      # NANDINAGARI LETTER A..NANDINAGARI LETTER VOC
+119A8..119A9; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+119AA..119D7; PVALID      # NANDINAGARI LETTER E..NANDINAGARI VOWEL SIGN
+119D8..119D9; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+119DA..119E1; PVALID      # NANDINAGARI VOWEL SIGN E..NANDINAGARI SIGN A
+119E2       ; DISALLOWED  # NANDINAGARI SIGN SIDDHAM
+119E3..119E4; PVALID      # NANDINAGARI HEADSTROKE..NANDINAGARI VOWEL SI
+119E5..119FF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 11A00..11A3E; PVALID      # ZANABAZAR SQUARE LETTER A..ZANABAZAR SQUARE 
 11A3F..11A46; DISALLOWED  # ZANABAZAR SQUARE INITIAL HEAD MARK..ZANABAZA
 11A47       ; PVALID      # ZANABAZAR SQUARE SUBJOINER
 11A48..11A4F; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
-11A50..11A83; PVALID      # SOYOMBO LETTER A..SOYOMBO LETTER KSSA
-11A84..11A85; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
-11A86..11A99; PVALID      # SOYOMBO CLUSTER-INITIAL LETTER RA..SOYOMBO S
+11A50..11A99; PVALID      # SOYOMBO LETTER A..SOYOMBO SUBJOINER
 11A9A..11A9C; DISALLOWED  # SOYOMBO MARK TSHEG..SOYOMBO MARK DOUBLE SHAD
 11A9D       ; PVALID      # SOYOMBO MARK PLUTA
 11A9E..11AA2; DISALLOWED  # SOYOMBO HEAD MARK WITH MOON AND SUN AND TRIP
@@ -3678,7 +3786,10 @@ FFF9..FFFF  ; DISALLOWED  # INTERLINEAR ANNOTATION ANCHOR..&lt;noncharacter
 11DAA..11EDF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 11EE0..11EF6; PVALID      # MAKASAR LETTER KA..MAKASAR VOWEL SIGN O
 11EF7..11EF8; DISALLOWED  # MAKASAR PASSIMBANG..MAKASAR END OF SECTION
-11EF9..11FFF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+11EF9..11FBF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+11FC0..11FF1; DISALLOWED  # TAMIL FRACTION ONE THREE-HUNDRED-AND-TWENTIE
+11FF2..11FFE; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+11FFF       ; DISALLOWED  # TAMIL PUNCTUATION END OF TEXT
 12000..12399; PVALID      # CUNEIFORM SIGN A..CUNEIFORM SIGN U U
 1239A..123FF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 12400..1246E; DISALLOWED  # CUNEIFORM NUMERIC SIGN TWO ASH..CUNEIFORM NU
@@ -3688,7 +3799,9 @@ FFF9..FFFF  ; DISALLOWED  # INTERLINEAR ANNOTATION ANCHOR..&lt;noncharacter
 12480..12543; PVALID      # CUNEIFORM SIGN AB TIMES NUN TENU..CUNEIFORM 
 12544..12FFF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 13000..1342E; PVALID      # EGYPTIAN HIEROGLYPH A001..EGYPTIAN HIEROGLYP
-1342F..143FF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+1342F       ; UNASSIGNED  # &lt;reserved&gt;
+13430..13438; DISALLOWED  # EGYPTIAN HIEROGLYPH VERTICAL JOINER..EGYPTIA
+13439..143FF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 14400..14646; PVALID      # ANATOLIAN HIEROGLYPH A001..ANATOLIAN HIEROGL
 14647..167FF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 16800..16A38; PVALID      # BAMUM LETTER PHASE-A NGKUE MFON..BAMUM LETTE
@@ -3721,20 +3834,26 @@ FFF9..FFFF  ; DISALLOWED  # INTERLINEAR ANNOTATION ANCHOR..&lt;noncharacter
 16E60..16E7F; PVALID      # MEDEFAIDRIN SMALL LETTER M..MEDEFAIDRIN SMAL
 16E80..16E9A; DISALLOWED  # MEDEFAIDRIN DIGIT ZERO..MEDEFAIDRIN EXCLAMAT
 16E9B..16EFF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
-16F00..16F44; PVALID      # MIAO LETTER PA..MIAO LETTER HHA
-16F45..16F4F; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
-16F50..16F7E; PVALID      # MIAO LETTER NASALIZATION..MIAO VOWEL SIGN NG
-16F7F..16F8E; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+16F00..16F4A; PVALID      # MIAO LETTER PA..MIAO LETTER RTE
+16F4B..16F4E; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+16F4F..16F87; PVALID      # MIAO SIGN CONSONANT MODIFIER BAR..MIAO VOWEL
+16F88..16F8E; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 16F8F..16F9F; PVALID      # MIAO TONE RIGHT..MIAO LETTER REFORMED TONE-8
 16FA0..16FDF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 16FE0..16FE1; PVALID      # TANGUT ITERATION MARK..NUSHU ITERATION MARK
-16FE2..16FFF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
-17000..187F1; PVALID      # &lt;Tangut Ideograph&gt;..&lt;Tangut Ideograph&gt;
-187F2..187FF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+16FE2       ; DISALLOWED  # OLD CHINESE HOOK MARK
+16FE3       ; PVALID      # OLD CHINESE ITERATION MARK
+16FE4..16FFF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+17000..187F7; PVALID      # &lt;Tangut Ideograph&gt;..&lt;Tangut Ideograph&gt;
+187F8..187FF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 18800..18AF2; PVALID      # TANGUT COMPONENT-001..TANGUT COMPONENT-755
 18AF3..1AFFF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 1B000..1B11E; PVALID      # KATAKANA LETTER ARCHAIC E..HENTAIGANA LETTER
-1B11F..1B16F; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+1B11F..1B14F; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+1B150..1B152; PVALID      # HIRAGANA LETTER SMALL WI..HIRAGANA LETTER SM
+1B153..1B163; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+1B164..1B167; PVALID      # KATAKANA LETTER SMALL WI..KATAKANA LETTER SM
+1B168..1B16F; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 1B170..1B2FB; PVALID      # NUSHU CHARACTER-1B170..NUSHU CHARACTER-1B2FB
 1B2FC..1BBFF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 1BC00..1BC6A; PVALID      # DUPLOYAN LETTER H..DUPLOYAN LETTER VOCALIC M
@@ -3826,21 +3945,36 @@ FFF9..FFFF  ; DISALLOWED  # INTERLINEAR ANNOTATION ANCHOR..&lt;noncharacter
 1E023..1E024; PVALID      # COMBINING GLAGOLITIC LETTER YU..COMBINING GL
 1E025       ; UNASSIGNED  # &lt;reserved&gt;
 1E026..1E02A; PVALID      # COMBINING GLAGOLITIC LETTER YO..COMBINING GL
-1E02B..1E7FF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+1E02B..1E0FF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+1E100..1E12C; PVALID      # NYIAKENG PUACHUE HMONG LETTER MA..NYIAKENG P
+1E12D..1E12F; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+1E130..1E13D; PVALID      # NYIAKENG PUACHUE HMONG TONE-B..NYIAKENG PUAC
+1E13E..1E13F; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+1E140..1E149; PVALID      # NYIAKENG PUACHUE HMONG DIGIT ZERO..NYIAKENG 
+1E14A..1E14D; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+1E14E       ; PVALID      # NYIAKENG PUACHUE HMONG LOGOGRAM NYAJ
+1E14F       ; DISALLOWED  # NYIAKENG PUACHUE HMONG CIRCLED CA
+1E150..1E2BF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+1E2C0..1E2F9; PVALID      # WANCHO LETTER AA..WANCHO DIGIT NINE
+1E2FA..1E2FE; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+1E2FF       ; DISALLOWED  # WANCHO NGUN SIGN
+1E300..1E7FF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 1E800..1E8C4; PVALID      # MENDE KIKAKUI SYLLABLE M001 KI..MENDE KIKAKU
 1E8C5..1E8C6; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 1E8C7..1E8CF; DISALLOWED  # MENDE KIKAKUI DIGIT ONE..MENDE KIKAKUI DIGIT
 1E8D0..1E8D6; PVALID      # MENDE KIKAKUI COMBINING NUMBER TEENS..MENDE 
 1E8D7..1E8FF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 1E900..1E921; DISALLOWED  # ADLAM CAPITAL LETTER ALIF..ADLAM CAPITAL LET
-1E922..1E94A; PVALID      # ADLAM SMALL LETTER ALIF..ADLAM NUKTA
-1E94B..1E94F; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+1E922..1E94B; PVALID      # ADLAM SMALL LETTER ALIF..ADLAM NASALIZATION 
+1E94C..1E94F; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 1E950..1E959; PVALID      # ADLAM DIGIT ZERO..ADLAM DIGIT NINE
 1E95A..1E95D; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 1E95E..1E95F; DISALLOWED  # ADLAM INITIAL EXCLAMATION MARK..ADLAM INITIA
 1E960..1EC70; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 1EC71..1ECB4; DISALLOWED  # INDIC SIYAQ NUMBER ONE..INDIC SIYAQ ALTERNAT
-1ECB5..1EDFF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+1ECB5..1ED00; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+1ED01..1ED3D; DISALLOWED  # OTTOMAN SIYAQ NUMBER ONE..OTTOMAN SIYAQ FRAC
+1ED3E..1EDFF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 1EE00..1EE03; DISALLOWED  # ARABIC MATHEMATICAL ALEF..ARABIC MATHEMATICA
 1EE04       ; UNASSIGNED  # &lt;reserved&gt;
 1EE05..1EE1F; DISALLOWED  # ARABIC MATHEMATICAL WAW..ARABIC MATHEMATICAL
@@ -3923,8 +4057,8 @@ FFF9..FFFF  ; DISALLOWED  # INTERLINEAR ANNOTATION ANCHOR..&lt;noncharacter
 1F0F6..1F0FF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 1F100..1F10C; DISALLOWED  # DIGIT ZERO FULL STOP..DINGBAT NEGATIVE CIRCL
 1F10D..1F10F; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
-1F110..1F16B; DISALLOWED  # PARENTHESIZED LATIN CAPITAL LETTER A..RAISED
-1F16C..1F16F; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+1F110..1F16C; DISALLOWED  # PARENTHESIZED LATIN CAPITAL LETTER A..RAISED
+1F16D..1F16F; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 1F170..1F1AC; DISALLOWED  # NEGATIVE SQUARED LATIN CAPITAL LETTER A..SQU
 1F1AD..1F1E5; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 1F1E6..1F202; DISALLOWED  # REGIONAL INDICATOR SYMBOL LETTER A..SQUARED 
@@ -3937,16 +4071,18 @@ FFF9..FFFF  ; DISALLOWED  # INTERLINEAR ANNOTATION ANCHOR..&lt;noncharacter
 1F252..1F25F; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 1F260..1F265; DISALLOWED  # ROUNDED SYMBOL FOR FU..ROUNDED SYMBOL FOR CA
 1F266..1F2FF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
-1F300..1F6D4; DISALLOWED  # CYCLONE..PAGODA
-1F6D5..1F6DF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+1F300..1F6D5; DISALLOWED  # CYCLONE..HINDU TEMPLE
+1F6D6..1F6DF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 1F6E0..1F6EC; DISALLOWED  # HAMMER AND WRENCH..AIRPLANE ARRIVING
 1F6ED..1F6EF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
-1F6F0..1F6F9; DISALLOWED  # SATELLITE..SKATEBOARD
-1F6FA..1F6FF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+1F6F0..1F6FA; DISALLOWED  # SATELLITE..AUTO RICKSHAW
+1F6FB..1F6FF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 1F700..1F773; DISALLOWED  # ALCHEMICAL SYMBOL FOR QUINTESSENCE..ALCHEMIC
 1F774..1F77F; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 1F780..1F7D8; DISALLOWED  # BLACK LEFT-POINTING ISOSCELES RIGHT TRIANGLE
-1F7D9..1F7FF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+1F7D9..1F7DF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+1F7E0..1F7EB; DISALLOWED  # LARGE ORANGE CIRCLE..LARGE BROWN SQUARE
+1F7EC..1F7FF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 1F800..1F80B; DISALLOWED  # LEFTWARDS ARROW WITH SMALL TRIANGLE ARROWHEA
 1F80C..1F80F; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 1F810..1F847; DISALLOWED  # LEFTWARDS ARROW WITH SMALL EQUILATERAL ARROW
@@ -3958,25 +4094,29 @@ FFF9..FFFF  ; DISALLOWED  # INTERLINEAR ANNOTATION ANCHOR..&lt;noncharacter
 1F890..1F8AD; DISALLOWED  # LEFTWARDS TRIANGLE ARROWHEAD..WHITE ARROW SH
 1F8AE..1F8FF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 1F900..1F90B; DISALLOWED  # CIRCLED CROSS FORMEE WITH FOUR DOTS..DOWNWAR
-1F90C..1F90F; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
-1F910..1F93E; DISALLOWED  # ZIPPER-MOUTH FACE..HANDBALL
-1F93F       ; UNASSIGNED  # &lt;reserved&gt;
-1F940..1F970; DISALLOWED  # WILTED FLOWER..SMILING FACE WITH SMILING EYE
-1F971..1F972; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+1F90C       ; UNASSIGNED  # &lt;reserved&gt;
+1F90D..1F971; DISALLOWED  # WHITE HEART..YAWNING FACE
+1F972       ; UNASSIGNED  # &lt;reserved&gt;
 1F973..1F976; DISALLOWED  # FACE WITH PARTY HORN AND PARTY HAT..FREEZING
 1F977..1F979; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
-1F97A       ; DISALLOWED  # FACE WITH PLEADING EYES
-1F97B       ; UNASSIGNED  # &lt;reserved&gt;
-1F97C..1F9A2; DISALLOWED  # LAB COAT..SWAN
-1F9A3..1F9AF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
-1F9B0..1F9B9; DISALLOWED  # EMOJI COMPONENT RED HAIR..SUPERVILLAIN
-1F9BA..1F9BF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
-1F9C0..1F9C2; DISALLOWED  # CHEESE WEDGE..SALT SHAKER
-1F9C3..1F9CF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
-1F9D0..1F9FF; DISALLOWED  # FACE WITH MONOCLE..NAZAR AMULET
-1FA00..1FA5F; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+1F97A..1F9A2; DISALLOWED  # FACE WITH PLEADING EYES..SWAN
+1F9A3..1F9A4; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+1F9A5..1F9AA; DISALLOWED  # SLOTH..OYSTER
+1F9AB..1F9AD; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+1F9AE..1F9CA; DISALLOWED  # GUIDE DOG..ICE CUBE
+1F9CB..1F9CC; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+1F9CD..1FA53; DISALLOWED  # STANDING PERSON..BLACK CHESS KNIGHT-BISHOP
+1FA54..1FA5F; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 1FA60..1FA6D; DISALLOWED  # XIANGQI RED GENERAL..XIANGQI BLACK SOLDIER
-1FA6E..1FFFD; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+1FA6E..1FA6F; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+1FA70..1FA73; DISALLOWED  # BALLET SHOES..SHORTS
+1FA74..1FA77; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+1FA78..1FA7A; DISALLOWED  # DROP OF BLOOD..STETHOSCOPE
+1FA7B..1FA7F; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+1FA80..1FA82; DISALLOWED  # YO-YO..PARACHUTE
+1FA83..1FA8F; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
+1FA90..1FA95; DISALLOWED  # RINGED PLANET..BANJO
+1FA96..1FFFD; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
 1FFFE..1FFFF; DISALLOWED  # &lt;noncharacter&gt;..&lt;noncharacter&gt;
 20000..2A6D6; PVALID      # &lt;CJK Ideograph Extension B&gt;..&lt;CJK Ideograph 
 2A6D7..2A6FF; UNASSIGNED  # &lt;reserved&gt;..&lt;reserved&gt;
