@@ -36,7 +36,7 @@
 <?rfc comments='yes' ?>
 <?rfc inline='yes' ?>  
 
-<rfc docName="draft-faltstrom-unicode12-01" ipr="trust200902" category="std">
+<rfc docName="draft-faltstrom-unicode12-03" ipr="trust200902" category="std">
   <front>
     <title abbrev="IDNA2008 and Unicode 12">
       IDNA2008 and Unicode 12.0.0
@@ -47,7 +47,7 @@
 	<email>paf@netnod.se</email>
       </address>
     </author>
-    <date month="March" year="2021" day="06"/>
+    <date month="October" year="2021" day="03"/>
     <area>Operations</area>
     <keyword>IDN</keyword>
     <keyword>IDNA</keyword>
@@ -337,7 +337,7 @@
 	      version of Unicode Standard exists in the operating
 	      system and/or libraries used, independent of whatever
 	      version of tables appears in the (non-normative) IANA
-	      detabase.
+	      database.
 	    </t>
 	  </list>
 	  In practice, the Unicode Consortium creates a maximum set of
@@ -351,7 +351,7 @@
 	  by those registries and organizations.
 	</t>
 	<t>
-	  This progressing subsetting and narrowing of the repertoire
+	  This progressive subsetting and narrowing of the repertoire
           of code points that can be used in labels is an
           implementation of the principles of being conservative when
           deciding what code points to include in such a subset.
@@ -368,7 +368,7 @@
 	<t>
 	  <list>
 	    <t>
-	      Change in number of chacters in each category:
+	      Change in number of characters in each category:
 	    </t>
 	    <t>
 	      Code points that changed derived property value: 0
@@ -386,7 +386,7 @@
 	      CONTEXTO did not change, at 25
 	    </t>
 	    <t>
-	      DISALLOWED changed from from 151791 to 152709 (+918)
+	      DISALLOWED changed from 151791 to 152709 (+918)
 	    </t>
 	    <t>
 	      TOTAL did not change, at 1114112
@@ -433,7 +433,7 @@
 	  resulted in acceptance of the derived property value of
 	  PVALID, the underlying problem with combining sequences is
 	  not understood fully. Therefore it cannot be claimed that
-	  this case can be extrapolated to other situtions and other
+	  this case can be extrapolated to other situations and other
 	  code points.
 	</t>
       </section>
@@ -441,7 +441,7 @@
 	<t>
 	  <list>
 	    <t>
-	      Change in number of chacters in each category:
+	      Change in number of characters in each category:
 	    </t>
 	    <t>
 	      Code points that changed derived property value: 0
@@ -459,7 +459,7 @@
 	      CONTEXTO did not change, at 25
 	    </t>
 	    <t>
-	      DISALLOWED changed from from 152709 to 153899 (+1190)
+	      DISALLOWED changed from 152709 to 153899 (+1190)
 	    </t>
 	    <t>
 	      TOTAL did not change, at 1114112
@@ -476,7 +476,7 @@
 	<t>
 	  <list>
 	    <t>
-	      Change in number of chacters in each category:
+	      Change in number of characters in each category:
 	    </t>
 	    <t>
 	      Code points that changed derived property value: 1
@@ -494,7 +494,7 @@
 	      CONTEXTO did not change, at 25
 	    </t>
 	    <t>
-	      DISALLOWED changed from from 153899 to 154260 (+361)
+	      DISALLOWED changed from 153899 to 154260 (+361)
 	    </t>
 	    <t>
 	      TOTAL did not change, at 1114112
@@ -570,7 +570,7 @@
 	<t>
 	  <list>
 	    <t>
-	      Change in number of chacters in each category:
+	      Change in number of characters in each category:
 	    </t>
 	    <t>
 	      Code points that changed derived property value: 0
@@ -588,7 +588,7 @@
 	      CONTEXTO did not change, at 25
 	    </t>
 	    <t>
-	      DISALLOWED changed from from 154260 to 154542 (+282)
+	      DISALLOWED changed from 154260 to 154542 (+282)
 	    </t>
 	    <t>
 	      TOTAL did not change, at 1114112
@@ -599,35 +599,27 @@
     </section>
     <section anchor="SHARADA" title="U+111C9 SHARADA SANDHI MARK">
       <t>
-	As one can see in <xref target="changes"/>, there is one incompatible
-	change made between Unicode 6.2.0 and 12.0.0, the code point U+111C9.
-	It has changed derived property value from DISALLOWED to PVALID. In
-	situations like these, IDNA2008 allow for addition of rules to
-	<xref target="RFC5892">RFC 5892</xref> section
-	2.7. (BackwardCompatible (G)).  The code point if being
-	accepted might due to implementations of IDNA2008 based on
-	older versions of Unicode than 11.0.0 be rejected. As the
-	character is rarely used outside of the group of Sharada
-	specialists, and used in some records for indicating sandhi
-	breaks, the conclusion is that it could either be added as an
-	exception or allowed to change its property value, as the use
-	of the code point is limited outside a special community. As
-	including an exception would require implementation changes in
-	deployed implementations of IDNA20008, the editor proposes
-	that such a BackwardCompatible rule NOT to be added to
-	IDNA2008.
-      </t>
-      <t>
-	EDITOR PROPOSAL:
+	As one can see in <xref target="changes"/>, an incompatible
+	property change was made between Unicode 6.2.0 and 12.0.0,
+	affecting the code point U+111C9.  Its derived property value
+	thus changed from DISALLOWED to PVALID. In situations like
+	these, IDNA2008 allow for addition of rules to <xref
+	target="RFC5892">RFC 5892</xref> section
+	2.7. (BackwardCompatible (G)).  If the code point is accepted,
+	it might still be rejected if validated by software based on
+	older versions of Unicode than 11.0.0.  As the character is
+	rarely used outside of the group of Sharada specialists, and
+	used in some records for indicating sandhi breaks, the
+	conclusion is that it could either be added as an exception or
+	allowed to change its property value, as the use of the code
+	point is limited outside a special community. As including an
+	exception would require implementation changes in deployed
+	implementations of IDNA20008, the editor proposes that such a
+	BackwardCompatible rule NOT to be added to IDNA2008. This also
+	ensures all sandhi marks being treated in an equal way.
       </t>
       <t>
 	The IETF has decided to NOT add a BackwardCompatible rule to IDNA2008 (i.e. Section 2.7 of <xref target="RFC5892">RFC 5892</xref>) for this code point.
-      </t>
-      <t>
-	NOTE TO RFC EDITOR:
-      </t>
-      <t>
-	Please remove the "EDITOR PROPOSAL:" and this paragraph subsequent to IETF approval.
       </t>
     </section>
     <section title="Conclusion">
@@ -668,15 +660,15 @@
       <t>
 	This document makes recommendations regarding the use of the
 	IDNA2008 algorithm for calculation of derived property values,
-	based on the Unicode version 12.0.0. This recommendation do not
+	based on Unicode version 12.0.0. This recommendation do not
 	say anything about what recommendations to make for future
 	versions of the Unicode Standard.
       </t>
       <t>
 	Not following these recommendations can lead to various
 	security issues. Specifically, allowing confusable characters
-	may lead to various phishing attacks, as described in the Security
-	Consideration Sections in the documents listed in section
+	may lead to various phishing attacks, as described in the
+	Security Consideration Sections in the documents listed in
 	<xref target="idna2008"/>.
       </t>
     </section>

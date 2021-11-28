@@ -1,31 +1,9 @@
-<?xml version="1.0" encoding="US-ASCII"?>
-<!DOCTYPE RFC SYSTEM "rfc2629.dtd" [
-<!ENTITY RFC3490 SYSTEM
-"http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.3490.xml">
-<!ENTITY RFC3454 SYSTEM
-"http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.3454.xml">
-<!ENTITY RFC3491 SYSTEM
-"http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.3491.xml">
-<!ENTITY RFC5890 SYSTEM
-"http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.5890.xml">
-<!ENTITY RFC5891 SYSTEM
-"http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.5891.xml">
-<!ENTITY RFC5892 SYSTEM
-"http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.5892.xml">
-<!ENTITY RFC5893 SYSTEM
-"http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.5893.xml">
-<!ENTITY RFC5894 SYSTEM
-"http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.5894.xml">
-<!ENTITY RFC5895 SYSTEM
-"http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.5895.xml">
-<!ENTITY RFC6452 SYSTEM
-"http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.6452.xml">
-<!ENTITY RFC6912 SYSTEM
-"http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.6912.xml">
-<!ENTITY RFC8753 SYSTEM
-"http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8753.xml">
-<!ENTITY I-D.klensin-idna-5892upd-unicode70 SYSTEM
-"http://xml2rfc.ietf.org/public/rfc/bibxml3/reference.I-D.draft-klensin-idna-5892upd-unicode70-05.xml">
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE rfc [
+  <!ENTITY nbsp    "&#160;">
+  <!ENTITY zwsp   "&#8203;">
+  <!ENTITY nbhy   "&#8209;">
+  <!ENTITY wj     "&#8288;">
 ]>
 <?xml-stylesheet type='text/xsl' href='RFC2629.xslt' ?>
 <?rfc compact="yes"?>
@@ -34,20 +12,21 @@
 <?rfc sortrefs="yes"?>
 <!-- Expand crefs and put them inline -->
 <?rfc comments='yes' ?>
-<?rfc inline='yes' ?>  
-
-<rfc docName="draft-faltstrom-unicode12-01" ipr="trust200902" category="std">
+<?rfc inline='yes' ?>
+<rfc xmlns:xi="http://www.w3.org/2001/XInclude" docName="draft-faltstrom-unicode12-03" ipr="trust200902" category="std" obsoletes="" updates="" submissionType="IETF" xml:lang="en" tocInclude="true" symRefs="true" sortRefs="true" version="3">
+  <!-- xml2rfc v2v3 conversion 3.10.0 -->
   <front>
     <title abbrev="IDNA2008 and Unicode 12">
       IDNA2008 and Unicode 12.0.0
     </title>
+    <seriesInfo name="Internet-Draft" value="draft-faltstrom-unicode12-03"/>
     <author fullname="Patrik Faltstrom" initials="P." surname="Faltstrom">
       <organization abbrev="Netnod">Netnod</organization>
       <address>
-	<email>paf@netnod.se</email>
+        <email>paf@netnod.se</email>
       </address>
     </author>
-    <date month="March" year="2021" day="06"/>
+    <date month="October" year="2021" day="03"/>
     <area>Operations</area>
     <keyword>IDN</keyword>
     <keyword>IDNA</keyword>
@@ -81,62 +60,64 @@
     </abstract>
   </front>
   <middle>
-    <section anchor="intro" title="Introduction">
+    <section anchor="intro" numbered="true" toc="default">
+      <name>Introduction</name>
       <t>
 	The current version of Internationalized Domain Names for
 	Applications (IDNA) was initiated in 2008, and despite not
 	being completed until 2010, is widely known as "IDNA2008". It
 	is specified in the series of documents listed in
-	<xref target="idna2008"/>. The IDNA2008 standard includes an
+	<xref target="idna2008" format="default"/>. The IDNA2008 standard includes an
 	algorithm by which a derived property value is calculated
 	based on the properties defined from the Unicode Standard.
       </t>
       <t>
 	The derived property values that can be calculated are defined
-	in <xref target="RFC5892">RFC 5892</xref>. The summary below
+	in <xref target="RFC5892" format="default">RFC 5892</xref>. The summary below
 	is a summary to make the reading of this document easier. For
-	definition of the terms, please see <xref target="RFC5892">RFC
+	definition of the terms, please see <xref target="RFC5892" format="default">RFC
 	5892</xref>.
-	<list style="symbols">
-	  <t>
+      </t>
+      <ul spacing="normal">
+        <li>
 	    PROTOCOL VALID: Those that are allowed to be used in IDNs.
 	    Code points with this property value are permitted for
 	    general use in IDNs.  However, that a label consists only
 	    of code points that have this property value does not
 	    imply that the label can be used in DNS. The abbreviated
 	    term PVALID is used to refer to this value.
-	  </t>
-	  <t>
+	  </li>
+        <li>
 	    CONTEXTUAL RULE REQUIRED: Some characteristics of the
             character, such as it being invisible in certain contexts
             or problematic in others, require that it not be used in
             labels unless specific other characters or properties are
             present.  The abbreviated term CONTEXT is used to refer to
             this value.
-	  </t>
-	  <t>
+	  </li>
+        <li>
 	    DISALLOWED: Those that should clearly not be included in
 	    IDNs.  Code points with this property value are not
 	    permitted in IDNs.
-	  </t>
-	  <t>
+	  </li>
+        <li>
 	    UNASSIGNED: Those code points that are not designated (i.e., are
 	    unassigned) in the Unicode Standard.
-	  </t>
-	</list>
-      </t>
+	  </li>
+      </ul>
       <t>
 	When the Unicode Standard is updated, new code points are assigned
 	and already-assigned code points can have their property values changed. 
-	<list style="symbols">
-	  <t>
+      </t>
+      <ul spacing="normal">
+        <li>
 	    Assigning code points can create problems if the
 	    newly-assigned code points are compositions of existing
 	    code points and because of that the normalization
 	    relationships associated with those code points should
 	    have been changed.
-	  </t>
-	  <t>
+	  </li>
+        <li>
 	    Changing properties for already-assigned code points can
 	    create problems if the property change results in changes
 	    to the derived property value. This might make an earlier
@@ -146,101 +127,102 @@
 	    the other way around: a code point that was not allowed
 	    (and thus is prohibited) can suddenly end up being
 	    allowed.
-	  </t>
-	  <t>
+	  </li>
+        <li>
 	    Problems can also be created if the properties assigned to
 	    those code points are inconsistent with IDNA2008
 	    assumptions about how properties are assigned and/or about
 	    how code points with those properties are used or behave.
-	  </t>
-	</list>
-      </t>
+	  </li>
+      </ul>
       <t>
 	There were three incompatible changes in the Unicode standard
-	after <xref target="Unicode-5.2.0">Unicode 5.2.0</xref> up to
-	including <xref target="Unicode-6.0.0">Unicode 6.0.0</xref>,
-	as described in <xref target="RFC6452">RFC 6452</xref>. The
+	after <xref target="Unicode-5.2.0" format="default">Unicode 5.2.0</xref> up to
+	including <xref target="Unicode-6.0.0" format="default">Unicode 6.0.0</xref>,
+	as described in <xref target="RFC6452" format="default">RFC 6452</xref>. The
 	code points U+0CF1 and U+0CF2 had a derived property value
 	change from DISALLOWED to PVALID while U+19DA had a change in
 	derived property value from PVALID to DISALLOWED. They were
 	examined in great detail and IETF concluded that the consensus
-	is that no update was needed to <xref target="RFC5892">RFC
+	is that no update was needed to <xref target="RFC5892" format="default">RFC
 	5892</xref> based on the changes made to the Unicode standard.
       </t>
       <t>
-	As described in <xref target="changes"/>, more changes have
+	As described in <xref target="changes" format="default"/>, more changes have
 	been made to code points between Unicode version 6.0.0 and
-	<xref target="Unicode-12.0.0">Unicode version 12.0.0</xref> so
+	<xref target="Unicode-12.0.0" format="default">Unicode version 12.0.0</xref> so
 	that the derived property values have been changed in an
 	incompatible way.  This document concludes that no exceptions
-	are to be added to <xref target="RFC5892">RFC 5892</xref>
+	are to be added to <xref target="RFC5892" format="default">RFC 5892</xref>
 	even though there are changes in the derived property value as
 	a result of the changes made in Unicode between version 6.2.0
 	and 12.0.0.
       </t>
       <t>
 	Further, in 2015, the Internet Architecture Board (IAB) issued
-	<xref target="IAB">a statement</xref> which requested the IETF
+	<xref target="IAB" format="default">a statement</xref> which requested the IETF
 	to resolve the issues related to the code point ARABIC LETTER
-	BEH WITH HAMZA ABOVE (U+08A1) that was introduced in <xref
-	target="Unicode-7.0.0">Unicode 7.0.0</xref>. This document
+	BEH WITH HAMZA ABOVE (U+08A1) that was introduced in <xref target="Unicode-7.0.0" format="default">Unicode 7.0.0</xref>. This document
 	concludes that this code point is not to be added to the
 	exception list either. It should be noted that the review on
 	U+08A1 indicated that it is not an isolated case and that a
 	number of PVALID code points of long standing may have similar
 	issues. The problem resulted in a clarification of the review
-	process of new Unicode versions <xref target="RFC8753">RFC
+	process of new Unicode versions <xref target="RFC8753" format="default">RFC
 	8753</xref>. This clarification of the review process will
 	impact review of Unicode versions after version 12.0.0.
       </t>
     </section>
-    <section title="Background">
-      <section anchor="idna2008" title="IDNA2008 Documents">
-	<t>
+    <section numbered="true" toc="default">
+      <name>Background</name>
+      <section anchor="idna2008" numbered="true" toc="default">
+        <name>IDNA2008 Documents</name>
+        <t>
 	  IDNA2008 consists of the following documents.
 	  The documents in the set have informal names.
-	  <list style="symbols">
-	    <t>
-	      <xref target="RFC5890">Internationalized Domain Names
+        </t>
+        <ul spacing="normal">
+          <li>
+            <xref target="RFC5890" format="default">Internationalized Domain Names
               for Applications (IDNA): Definitions and Document
               Framework</xref>, informally called "Defs" or
               "Definitions", contains definitions and other material
               that are needed for understanding other documents in the
               set.
-	    </t>
-	    <t>
-	      <xref target="RFC5891">Internationalized Domain Names in
+	    </li>
+          <li>
+            <xref target="RFC5891" format="default">Internationalized Domain Names in
 	      Applications (IDNA): Protocol</xref>, informally called
 	      "Protocol", describes the core IDNA2008 protocol and its
 	      operations.  It needs to be interpreted in combination
 	      with the Bidi document (described below).
-	    </t>
-	    <t>
-	      <xref target="RFC5892">The Unicode Code Points and
+	    </li>
+          <li>
+            <xref target="RFC5892" format="default">The Unicode Code Points and
               Internationalized Domain Names for Applications
               (IDNA)</xref>, informally called "Tables", lists the
               categories and rules that identify the code points
               allowed in a label written in native character form
               (called a "U-label"), and is based
-              on <xref target="Unicode-5.2.0">Unicode 5.2.0</xref>
+              on <xref target="Unicode-5.2.0" format="default">Unicode 5.2.0</xref>
               code point assignments and additional rules unique to
               IDNA2008.  The Unicode-based rules in RFC 4892 are
               expected to be stable across Unicode updates and hence
               independent of Unicode
-              versions.  <xref target="RFC5892">RFC 5892</xref>
-              obsoletes <xref target="RFC3491">RFC 3491</xref>, and in
+              versions.  <xref target="RFC5892" format="default">RFC 5892</xref>
+              obsoletes <xref target="RFC3491" format="default">RFC 3491</xref>, and in
               particular the use of the tables to
-              which <xref target="RFC3491">RFC 3491</xref> refers.
-	    </t>
-	    <t>
-	      <xref target="RFC5893">Right-to-Left Scripts for
+              which <xref target="RFC3491" format="default">RFC 3491</xref> refers.
+	    </li>
+          <li>
+            <xref target="RFC5893" format="default">Right-to-Left Scripts for
               Internationalized Domain Names for Applications
               (IDNA)</xref>, informally called "Bidi", specifies
               special rules for labels that contain characters that
               are written from right to left.
-	    </t>
-	    <t>
-	      <xref target="RFC5894">Internationalized Domain Names
+	    </li>
+          <li>
+            <xref target="RFC5894" format="default">Internationalized Domain Names
               for Applications (IDNA): Background, Explanation, and
               Rationale</xref>, informally called "Rationale",
               provides an overview of the protocol and associated
@@ -248,80 +230,82 @@
               rationale for the decisions that led to IDNA2008.  It
               also contains advice for DNS registry operators and
               others who use Internationalized Domain Names (IDNs).
-	    </t>
-	    <t>
-	      <xref target="RFC5895">Mapping Characters for
+	    </li>
+          <li>
+            <xref target="RFC5895" format="default">Mapping Characters for
               Internationalized Domain Names in Applications (IDNA)
               2008</xref>, informally called "Mapping", discusses the
               issue of mapping characters into other characters and
               provides guidance for doing so when that is appropriate.
               RFC 5895 provides advice only and is not a required part
               of IDNA.
-	    </t>
-	  </list>
-	</t>
+	    </li>
+        </ul>
       </section>
-      <section title="Additional important IDNA2008-related documents">
-	<t>
+      <section numbered="true" toc="default">
+        <name>Additional important IDNA2008-related documents</name>
+        <t>
 	  There are other documents important for the understanding and functioning of IDNA2008, for example this.
-	  <list style="symbols">
-	    <t>
-	      <xref target="RFC6452">The Unicode Code Points and
+        </t>
+        <ul spacing="normal">
+          <li>
+            <xref target="RFC6452" format="default">The Unicode Code Points and
               Internationalized Domain Names for Applications (IDNA) -
               Unicode 6.0</xref> describes some changes made
-              to <xref target="Unicode-6.0.0">Unicode 6.0.0</xref>
+              to <xref target="Unicode-6.0.0" format="default">Unicode 6.0.0</xref>
               that resulted in derived property value change for
               the code points U+0CF1, U+0CF2 and U+19DA. U+0CF1 and
               U+0CF2 changed from DISALLOWED to PVALID, while U+19DA
               changed from PVALID to DISALLOWED. The IETF concluded
-              that no update to <xref target="RFC5892">RFC 5892</xref>
+              that no update to <xref target="RFC5892" format="default">RFC 5892</xref>
               was needed based on the changes made
-              in <xref target="Unicode-6.0.0">Unicode 6.0.0</xref>. As
+              in <xref target="Unicode-6.0.0" format="default">Unicode 6.0.0</xref>. As
               a result, the derived property value remained aligned
               with the Unicode Standard. Specifically, no exception
 	      was added.
-	    </t>
-	  </list>
-	</t>
+	    </li>
+        </ul>
       </section>
-      <section anchor="deployment" title="Deployment">
-	<t>
+      <section anchor="deployment" numbered="true" toc="default">
+        <name>Deployment</name>
+        <t>
 	  There are many variations on the general IDNA model in use
 	  in the various parts of the community. The following lists
 	  some of the strategies that implementations that claim to be
 	  IDNA compliant are known to use, but it should be noted the
 	  list is not complete:
-	  <list style="symbols">
-	    <t>
-	      IDNA2003 as specified in <xref target="RFC3490">RFC
-	      3490</xref> and <xref target="RFC3491">RFC 3491</xref>.
+        </t>
+        <ul spacing="normal">
+          <li>
+	      IDNA2003 as specified in <xref target="RFC3490" format="default">RFC
+	      3490</xref> and <xref target="RFC3491" format="default">RFC 3491</xref>.
 	      Those specifications are dependent on case folding and
 	      NFKC normalization and on tables that specify for each
 	      code point whether it is allowed to be used or not, with
 	      a distinction made between use for "stored strings" and
 	      "query strings".  The tables themselves are dependent on
-	      <xref target="Unicode-3.2.0">version 3.2 of The Unicode Standard</xref>.
-	    </t>
-	    <t>
+	      <xref target="Unicode-3.2.0" format="default">version 3.2 of The Unicode Standard</xref>.
+	    </li>
+          <li>
               A number of variations on IDNA2003, sometimes presented
               as "updated IDNA2003" or the like, which follow the
               principles of IDNA2003 as understood by the implementers
               but that use tables that represent how the implementers
-              believe <xref target="RFC3454">Stringprep</xref>
-              and <xref target="RFC3491">Nameprep</xref> would have
+              believe <xref target="RFC3454" format="default">Stringprep</xref>
+              and <xref target="RFC3491" format="default">Nameprep</xref> would have
               evolved had the IETF not moved in the direction of
               IDNA2008 instead.
-	    </t>
-	    <t>
+	    </li>
+          <li>
 	      A mix between IDNA2003 and IDNA2008 where code points
 	      assigned to Unicode
-	      after <xref target="Unicode-3.2.0">Unicode 3.2.0</xref>
+	      after <xref target="Unicode-3.2.0" format="default">Unicode 3.2.0</xref>
 	      have derived property value calculated according to the
 	      algorithm specified in IDNA2008.
-	    </t>
-	    <t>
+	    </li>
+          <li>
 	      A mix between IDNA2003 and IDNA2008 according to
-	      the <xref target="UTS-46">Unicode Technical Standard
+	      the <xref target="UTS-46" format="default">Unicode Technical Standard
 	      #46</xref>.  Because that document specifies different
 	      profiles, there are several different variations that
 	      leave users with no guarantee that two applications
@@ -329,17 +313,18 @@
 	      with each other much less with conforming IDNA2008
 	      implementations.  UTS#46 is ultimately based on a
 	      normative table very much like the one used by
-	      <xref target="RFC3454">Stringprep</xref> but updated for
+	      <xref target="RFC3454" format="default">Stringprep</xref> but updated for
 	      each new version of Unicode.
-	    </t>
-	    <t>
+	    </li>
+          <li>
 	      The (normative) IDNA2008 algorithm applied to whatever
 	      version of Unicode Standard exists in the operating
 	      system and/or libraries used, independent of whatever
 	      version of tables appears in the (non-normative) IANA
-	      detabase.
-	    </t>
-	  </list>
+	      database.
+	    </li>
+        </ul>
+        <t>
 	  In practice, the Unicode Consortium creates a maximum set of
 	  code points by assigning code points in the Unicode
 	  Standard. The IDNA2008 rules use the Unicode Standard to
@@ -349,75 +334,73 @@
 	  registries and other organizations that deal with IDNs are
 	  supposed to create their own subsets from IDNA2008 for use
 	  by those registries and organizations.
-	</t>
-	<t>
-	  This progressing subsetting and narrowing of the repertoire
+        </t>
+        <t>
+	  This progressive subsetting and narrowing of the repertoire
           of code points that can be used in labels is an
           implementation of the principles of being conservative when
           deciding what code points to include in such a subset.
-	  <xref target="SAC-084">SAC-084</xref>
-	  and <xref target="RFC6912">RFC 6912</xref> recommend to DNS
+	  <xref target="SAC-084" format="default">SAC-084</xref>
+	  and <xref target="RFC6912" format="default">RFC 6912</xref> recommend to DNS
 	  registries and other organizations to be conservative when
 	  creating their subsets, and to use the principle of creating
 	  subsets by inclusion.
-	</t>
+        </t>
       </section>
     </section>
-    <section anchor="changes" title="Notable Changes Between Unicode 6.2.0 and 12.0.0">
-      <section title="Changes between Unicode 6.2.0 and 7.0.0">
-	<t>
-	  <list>
-	    <t>
-	      Change in number of chacters in each category:
-	    </t>
-	    <t>
+    <section anchor="changes" numbered="true" toc="default">
+      <name>Notable Changes Between Unicode 6.2.0 and 12.0.0</name>
+      <section numbered="true" toc="default">
+        <name>Changes between Unicode 6.2.0 and 7.0.0</name>
+        <ul empty="true" spacing="normal">
+          <li>
+	      Change in number of characters in each category:
+	    </li>
+          <li>
 	      Code points that changed derived property value: 0
-	    </t>
-	    <t>
+	    </li>
+          <li>
 	      PVALID changed from 97946 to 99867 (+1921)
-	    </t>
-	    <t>
+	    </li>
+          <li>
 	      UNASSIGNED changed from 864348 to 861509 (-2839)
-	    </t>
-	    <t>
+	    </li>
+          <li>
 	      CONTEXTJ did not change, at 2
-	    </t>
-	    <t>
+	    </li>
+          <li>
 	      CONTEXTO did not change, at 25
-	    </t>
-	    <t>
-	      DISALLOWED changed from from 151791 to 152709 (+918)
-	    </t>
-	    <t>
+	    </li>
+          <li>
+	      DISALLOWED changed from 151791 to 152709 (+918)
+	    </li>
+          <li>
 	      TOTAL did not change, at 1114112
-	    </t>
-	    <t>
+	    </li>
+          <li>
 	      There are no changes made to Unicode between version
 	      6.2.0 and 7.0.0 that impact IDNA2008 calculation of the
 	      derived property values.
-	    </t>
-	  </list>
-	</t>
-	<t>
+	    </li>
+        </ul>
+        <t>
 	  The character ARABIC LETTER BEH WITH HAMZA ABOVE (U+08A1) was
 	  introduced in Unicode 7.0.0. This was discussed extensively in the IETF,
-	  and by the IAB in <xref target="IAB">their
+	  and by the IAB in <xref target="IAB" format="default">their
 	  statement</xref> requesting the IETF to investigate the
 	  issue. Specifically, the IAB stated:
-	</t>
-	<t>
-	  <list>
-	    <t>
+        </t>
+        <ul empty="true" spacing="normal">
+          <li>
 	      On the same precautionary principle, the IAB recommends
 	      that the Internationalized Domain Names for Applications
 	      (IDNA) Parameters registry
 	      (http://www.iana.org/assignments/idna-tables/) not be
 	      updated to Unicode 7.0.0 until the IETF has consensus on a
 	      solution to this problem.
-	    </t>
-	  </list>
-	</t>
-	<t>
+	    </li>
+        </ul>
+        <t>
 	  The discussion in the IETF concluded that although it is
 	  possible to create "the same" character in multiple ways,
 	  the issue with U+08A1 is not unique.  The character U+08A1
@@ -427,107 +410,108 @@
 	  STROKE (U+00F8), which can be represented with the sequence
 	  LATIN SMALL LETTER O (U+006F) followed by COMBINING SHORT
 	  SOLIDUS OVERLAY (U+0337).
-	</t>
-	<t>
+        </t>
+        <t>
 	  Although the discussion about this specific code point
 	  resulted in acceptance of the derived property value of
 	  PVALID, the underlying problem with combining sequences is
 	  not understood fully. Therefore it cannot be claimed that
-	  this case can be extrapolated to other situtions and other
+	  this case can be extrapolated to other situations and other
 	  code points.
-	</t>
+        </t>
       </section>
-      <section title="Changes between Unicode 7.0.0 and 10.0.0">
-	<t>
-	  <list>
-	    <t>
-	      Change in number of chacters in each category:
-	    </t>
-	    <t>
+      <section numbered="true" toc="default">
+        <name>Changes between Unicode 7.0.0 and 10.0.0</name>
+        <ul empty="true" spacing="normal">
+          <li>
+	      Change in number of characters in each category:
+	    </li>
+          <li>
 	      Code points that changed derived property value: 0
-	    </t>
-	    <t>
+	    </li>
+          <li>
 	      PVALID changed from 99867 to 122411 (+22544)
-	    </t>
-	    <t>
+	    </li>
+          <li>
 	      UNASSIGNED changed from 861509 to 837775 (-23734)
-	    </t>
-	    <t>
+	    </li>
+          <li>
 	      CONTEXTJ did not change, at 2
-	    </t>
-	    <t>
+	    </li>
+          <li>
 	      CONTEXTO did not change, at 25
-	    </t>
-	    <t>
-	      DISALLOWED changed from from 152709 to 153899 (+1190)
-	    </t>
-	    <t>
+	    </li>
+          <li>
+	      DISALLOWED changed from 152709 to 153899 (+1190)
+	    </li>
+          <li>
 	      TOTAL did not change, at 1114112
-	    </t>
-	    <t>
+	    </li>
+          <li>
 	      There are no changes made to Unicode between version 7.0.0
 	      and 10.0.0 that impact IDNA2008 calculation of the derived
 	      property values.
-	    </t>
-	  </list>
-	</t>
+	    </li>
+        </ul>
       </section>
-      <section title="Changes between Unicode 10.0.0 and 11.0.0">
-	<t>
-	  <list>
-	    <t>
-	      Change in number of chacters in each category:
-	    </t>
-	    <t>
+      <section numbered="true" toc="default">
+        <name>Changes between Unicode 10.0.0 and 11.0.0</name>
+        <ul empty="true" spacing="normal">
+          <li>
+	      Change in number of characters in each category:
+	    </li>
+          <li>
 	      Code points that changed derived property value: 1
-	    </t>
-	    <t>
+	    </li>
+          <li>
 	      PVALID changed from 122411 to 122734 (+323)
-	    </t>
-	    <t>
+	    </li>
+          <li>
 	      UNASSIGNED changed from 837775 to 837091 (-684)
-	    </t>
-	    <t>
+	    </li>
+          <li>
 	      CONTEXTJ did not change, at 2
-	    </t>
-	    <t>
+	    </li>
+          <li>
 	      CONTEXTO did not change, at 25
-	    </t>
-	    <t>
-	      DISALLOWED changed from from 153899 to 154260 (+361)
-	    </t>
-	    <t>
+	    </li>
+          <li>
+	      DISALLOWED changed from 153899 to 154260 (+361)
+	    </li>
+          <li>
 	      TOTAL did not change, at 1114112
-	    </t>
-	    <t>
+	    </li>
+          <li>
 	      Georgian letters in the ranges U+10D0..U+10FA and
 	      U+10FD..U+10FF had their General Properties changed from Lo to Ll, to reflect
 	      their status as the lowercase of new Georgian case
 	      pairs. Case mappings were also added.
-	    </t>
-	    <t>
+	    </li>
+          <li>
 	      SHARADA SANDHI MARK (U+111C9) was changed from Po to Mn,
 	      and from bc=L to bc=NSM.
-	    </t>
-	    <t>
+	    </li>
+          <li>
 	      The properties for ZANABAZAR SQUARE VOWEL SIGN AI (U+11A07) and
 	      ZANABZAR SQUARE VOWEL SIGN AU (U+11A08) were corrected from Mc to
 	      Mn.
-	    </t>
-	    <t>
+	    </li>
+          <li>
 	      SPHERICAL ANGLE OPENING UP (U+29A1) was changed to
 	      Bidi_M=N.
-	    </t>
-	  </list>
+	    </li>
+        </ul>
+        <t>
 	  These changes to the Unicode Standard have the following
 	  implications for these code points:
-	  <list style="symbols">
-	    <t>
+        </t>
+        <ul spacing="normal">
+          <li>
 	      The newly assigned 684 characters are assigned a derived
 	      property value as of a result of applying the IDNA2008
 	      algorithm.
-	    </t>
-	    <t>
+	    </li>
+          <li>
 	      The Georgian letters in the ranges U+10D0..U+10FA and
 	      U+10FD..U+10FF existed before IDNA2008 was created.
 	      Applying the IDNA2008 algorithm to the code points
@@ -536,110 +520,101 @@
 	      properties have changed. The newly encoded Mtavruli
 	      letters have general category "Lu" and are therefore
 	      DISALLOWED.
-	    </t>
-	    <t>
+	    </li>
+          <li>
 	      The U+111C9 SHARADA SANDHI MARK was added
-	      to <xref target="Unicode-8.0.0">Unicode
+	      to <xref target="Unicode-8.0.0" format="default">Unicode
 	      8.0.0</xref>. Applying the IDNA2008 algorithm to the
 	      code point assigned the derived property value
 	      DISALLOWED. The changes in the underlying properties in
-	      the <xref target="Unicode-11.0.0">Unicode Standard
+	      the <xref target="Unicode-11.0.0" format="default">Unicode Standard
 	      Version 11.0.0</xref> caused the derived property value
 	      to change to PVALID.
-	    </t>
-	    <t>
+	    </li>
+          <li>
 	      The characters ZANABAZAR SQUARE VOWEL SIGN AI (U+11A07)
 	      and ZANABZAR SQUARE VOWEL SIGN AU (U+11A08) were added to
-	      <xref target="Unicode-10.0.0">Unicode 10.0.0</xref>.
+	      <xref target="Unicode-10.0.0" format="default">Unicode 10.0.0</xref>.
 	      Applying the IDNA2008 algorithm to the code points
 	      assigned the derived property value PVALID, and that value
 	      is unchanged even if the underlying Unicode properties
 	      have changed.
-	    </t>
-	    <t>
+	    </li>
+          <li>
 	      SPHERICAL ANGLE OPENING UP (U+29A1) existed
 	      before IDNA2008 was created.  Applying the IDNA2008
 	      algorithm to the code point assigned the derived
 	      property value DISALLOWED, and that value is unchanged even
 	      if the underlying Unicode properties have changed.
-	    </t>
-	  </list>
-	</t>
+	    </li>
+        </ul>
       </section>
-      <section title="Changes between Unicode 11.0.0 and 12.0.0">
-	<t>
-	  <list>
-	    <t>
-	      Change in number of chacters in each category:
-	    </t>
-	    <t>
+      <section numbered="true" toc="default">
+        <name>Changes between Unicode 11.0.0 and 12.0.0</name>
+        <ul empty="true" spacing="normal">
+          <li>
+	      Change in number of characters in each category:
+	    </li>
+          <li>
 	      Code points that changed derived property value: 0
-	    </t>
-	    <t>
+	    </li>
+          <li>
 	      PVALID changed from 122734 to 123006 (+272)
-	    </t>
-	    <t>
+	    </li>
+          <li>
 	      UNASSIGNED changed from 837091 to 836537 (-554)
-	    </t>
-	    <t>
+	    </li>
+          <li>
 	      CONTEXTJ did not change, at 2
-	    </t>
-	    <t>
+	    </li>
+          <li>
 	      CONTEXTO did not change, at 25
-	    </t>
-	    <t>
-	      DISALLOWED changed from from 154260 to 154542 (+282)
-	    </t>
-	    <t>
+	    </li>
+          <li>
+	      DISALLOWED changed from 154260 to 154542 (+282)
+	    </li>
+          <li>
 	      TOTAL did not change, at 1114112
-	    </t>
-	  </list>
-	</t>
+	    </li>
+        </ul>
       </section>
     </section>
-    <section anchor="SHARADA" title="U+111C9 SHARADA SANDHI MARK">
+    <section anchor="SHARADA" numbered="true" toc="default">
+      <name>U+111C9 SHARADA SANDHI MARK</name>
       <t>
-	As one can see in <xref target="changes"/>, there is one incompatible
-	change made between Unicode 6.2.0 and 12.0.0, the code point U+111C9.
-	It has changed derived property value from DISALLOWED to PVALID. In
-	situations like these, IDNA2008 allow for addition of rules to
-	<xref target="RFC5892">RFC 5892</xref> section
-	2.7. (BackwardCompatible (G)).  The code point if being
-	accepted might due to implementations of IDNA2008 based on
-	older versions of Unicode than 11.0.0 be rejected. As the
-	character is rarely used outside of the group of Sharada
-	specialists, and used in some records for indicating sandhi
-	breaks, the conclusion is that it could either be added as an
-	exception or allowed to change its property value, as the use
-	of the code point is limited outside a special community. As
-	including an exception would require implementation changes in
-	deployed implementations of IDNA20008, the editor proposes
-	that such a BackwardCompatible rule NOT to be added to
-	IDNA2008.
+	As one can see in <xref target="changes" format="default"/>, an incompatible
+	property change was made between Unicode 6.2.0 and 12.0.0,
+	affecting the code point U+111C9.  Its derived property value
+	thus changed from DISALLOWED to PVALID. In situations like
+	these, IDNA2008 allow for addition of rules to <xref target="RFC5892" format="default">RFC 5892</xref> section
+	2.7. (BackwardCompatible (G)).  If the code point is accepted,
+	it might still be rejected if validated by software based on
+	older versions of Unicode than 11.0.0.  As the character is
+	rarely used outside of the group of Sharada specialists, and
+	used in some records for indicating sandhi breaks, the
+	conclusion is that it could either be added as an exception or
+	allowed to change its property value, as the use of the code
+	point is limited outside a special community. As including an
+	exception would require implementation changes in deployed
+	implementations of IDNA20008, the editor proposes that such a
+	BackwardCompatible rule NOT to be added to IDNA2008. This also
+	ensures all sandhi marks being treated in an equal way.
       </t>
       <t>
-	EDITOR PROPOSAL:
-      </t>
-      <t>
-	The IETF has decided to NOT add a BackwardCompatible rule to IDNA2008 (i.e. Section 2.7 of <xref target="RFC5892">RFC 5892</xref>) for this code point.
-      </t>
-      <t>
-	NOTE TO RFC EDITOR:
-      </t>
-      <t>
-	Please remove the "EDITOR PROPOSAL:" and this paragraph subsequent to IETF approval.
+	The IETF has decided to NOT add a BackwardCompatible rule to IDNA2008 (i.e. Section 2.7 of <xref target="RFC5892" format="default">RFC 5892</xref>) for this code point.
       </t>
     </section>
-    <section title="Conclusion">
+    <section numbered="true" toc="default">
+      <name>Conclusion</name>
       <t>
-	As described in <xref target="changes"/> and
-	<xref target="SHARADA"/>, changes have been made to Unicode
+	As described in <xref target="changes" format="default"/> and
+	<xref target="SHARADA" format="default"/>, changes have been made to Unicode
 	between version 6.2.0 and 12.0.0. Some changes to specific
 	characters changed their derived property value, whereas other
 	changes did not.  Given the deployment considerations
-	described in <xref target="deployment"/> and changes in the
-	Unicode Standard described in <xref target="changes"/> and
-	<xref target="SHARADA"/>, including implications to
+	described in <xref target="deployment" format="default"/> and changes in the
+	Unicode Standard described in <xref target="changes" format="default"/> and
+	<xref target="SHARADA" format="default"/>, including implications to
 	normalization, the conclusion of this document is to not add
 	any exception rules to IDNA2008.
       </t>
@@ -648,39 +623,42 @@
 	version 6.2.0 and version 12.0.0.  Changes in future Unicode
 	versions might result in the conclusion that exception rules
 	need to be added to IDNA2008 after review process explained in
-	<xref target="RFC8753">RFC 8753</xref>.  Separately from any
+	<xref target="RFC8753" format="default">RFC 8753</xref>.  Separately from any
 	changes in Unicode, the IETF might conclude that updates to
-	<xref target="RFC5892">RFC 5892</xref> or other IDNA2008
+	<xref target="RFC5892" format="default">RFC 5892</xref> or other IDNA2008
 	documents might become necessary; such updates might include
 	changes to the algorithm specified in IDNA2008 as well as
 	additional rules, categories, or other forms of tuning. Like
-	the clarifications in <xref target="RFC8753">RFC 8753</xref>.
+	the clarifications in <xref target="RFC8753" format="default">RFC 8753</xref>.
       </t>
     </section>
-    <section title="IANA Considerations">
+    <section numbered="true" toc="default">
+      <name>IANA Considerations</name>
       <t>
 	IANA is requested to update the IDNA Parameters registry of
 	derived property values, after the expert reviewer validates
 	that the derived property values are calculated correctly.
       </t>
     </section>
-    <section title="Security Considerations">
+    <section numbered="true" toc="default">
+      <name>Security Considerations</name>
       <t>
 	This document makes recommendations regarding the use of the
 	IDNA2008 algorithm for calculation of derived property values,
-	based on the Unicode version 12.0.0. This recommendation do not
+	based on Unicode version 12.0.0. This recommendation do not
 	say anything about what recommendations to make for future
 	versions of the Unicode Standard.
       </t>
       <t>
 	Not following these recommendations can lead to various
 	security issues. Specifically, allowing confusable characters
-	may lead to various phishing attacks, as described in the Security
-	Consideration Sections in the documents listed in section
-	<xref target="idna2008"/>.
+	may lead to various phishing attacks, as described in the
+	Security Consideration Sections in the documents listed in
+	<xref target="idna2008" format="default"/>.
       </t>
     </section>
-    <section title="Acknowledgements">
+    <section numbered="true" toc="default">
+      <name>Acknowledgements</name>
       <t>
 	Thanks to Harald Alvestrand, Marc Blanchet, Martin Duerst,
 	Asmus Freytag, Ted Hardie, John Klensin, Erik Nordmark, Pete
@@ -690,182 +668,174 @@
     </section>
   </middle>
   <back>
-    <references title='Normative References'>
-      &RFC3491;
-      &RFC5890;
-      &RFC5891;
-      &RFC5892;
-      &RFC5893;
-      &RFC6452;
+    <references>
+      <name>References</name>
+      <references>
+        <name>Normative References</name>
+        <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.3491.xml"/>
+        <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.5890.xml"/>
+        <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.5891.xml"/>
+        <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.5892.xml"/>
+        <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.5893.xml"/>
+        <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.6452.xml"/>
+      </references>
+      <references>
+        <name>Non-normative references</name>
+        <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.3454.xml"/>
+        <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.3490.xml"/>
+        <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.5894.xml"/>
+        <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.5895.xml"/>
+        <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.6912.xml"/>
+        <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8753.xml"/>
+        <reference anchor="IAB">
+          <front>
+            <title>IAB Statement on Identifiers and Unicode 7.0.0</title>
+            <author>
+              <organization>Internet Architecture Board</organization>
+            </author>
+            <date month="January" year="2015"/>
+          </front>
+          <seriesInfo name="IAB Statement on Identifiers and Unicode 7.0.0" value="https://www.iab.org/documents/correspondence-reports-documents/2015-2/iab-statement-on-identifiers-and-unicode-7-0-0/"/>
+        </reference>
+        <reference anchor="SAC-084">
+          <front>
+            <title>SAC084</title>
+            <author>
+              <organization>The Security and Stability Advisory Committee</organization>
+            </author>
+            <date month="August" year="2016"/>
+          </front>
+          <seriesInfo name="SSAC Comments on Guidelines for the Extended Process Similarity Review Panel for the IDN ccTLD Fast Track Process" value="https://www.icann.org/en/system/files/files/sac-084-en.pdf"/>
+        </reference>
+        <reference anchor="Changes-11.0.0">
+          <front>
+            <title>Unicode Standard Annex #44</title>
+            <author>
+              <organization>The Unicode Consortium</organization>
+            </author>
+            <date month="May" year="2018"/>
+          </front>
+          <seriesInfo name="Unicode Standard Annex #44, UNICODE CHARACTER DATABASE, Change History" value="https://www.unicode.org/reports/tr44/tr44-21d4.html#Change_History"/>
+        </reference>
+        <reference anchor="Unicode-3.2.0">
+          <front>
+            <title>The Unicode Standard, Version 3.2.0</title>
+            <author>
+              <organization>The Unicode Consortium</organization>
+            </author>
+            <date month="March" year="2002"/>
+          </front>
+          <seriesInfo name="The Unicode Standard, Version 3.2.0" value="ISBN 0-201-61633-5"/>
+        </reference>
+        <reference anchor="Unicode-5.2.0">
+          <front>
+            <title>The Unicode Standard, Version 5.2.0</title>
+            <author>
+              <organization>The Unicode Consortium</organization>
+            </author>
+            <date month="October" year="2009"/>
+          </front>
+          <seriesInfo name="The Unicode Standard, Version 5.2.0" value="ISBN 978-1-936213-00-9"/>
+        </reference>
+        <reference anchor="Unicode-6.0.0">
+          <front>
+            <title>The Unicode Standard, Version 6.0.0</title>
+            <author>
+              <organization>The Unicode Consortium</organization>
+            </author>
+            <date month="October" year="2011"/>
+          </front>
+          <seriesInfo name="The Unicode Standard, Version 6.0.0" value="ISBN 978-1-936213-01-6"/>
+        </reference>
+        <reference anchor="Unicode-6.3.0">
+          <front>
+            <title>The Unicode Standard, Version 6.3.0</title>
+            <author>
+              <organization>The Unicode Consortium</organization>
+            </author>
+            <date month="September" year="2013"/>
+          </front>
+          <seriesInfo name="The Unicode Standard, Version 6.3.0" value="ISBN 978-1-936213-08-5"/>
+        </reference>
+        <reference anchor="Unicode-7.0.0">
+          <front>
+            <title>The Unicode Standard, Version 7.0.0</title>
+            <author>
+              <organization>The Unicode Consortium</organization>
+            </author>
+            <date month="June" year="2014"/>
+          </front>
+          <seriesInfo name="The Unicode Standard, Version 7.0.0" value="ISBN 978-1-936213-09-2"/>
+        </reference>
+        <reference anchor="Unicode-8.0.0">
+          <front>
+            <title>The Unicode Standard, Version 8.0.0</title>
+            <author>
+              <organization>The Unicode Consortium</organization>
+            </author>
+            <date month="June" year="2015"/>
+          </front>
+          <seriesInfo name="The Unicode Standard, Version 8.0.0" value="ISBN 978-1-936213-10-8"/>
+        </reference>
+        <reference anchor="Unicode-9.0.0">
+          <front>
+            <title>The Unicode Standard, Version 9.0.0</title>
+            <author>
+              <organization>The Unicode Consortium</organization>
+            </author>
+            <date month="June" year="2016"/>
+          </front>
+          <seriesInfo name="The Unicode Standard, Version 9.0.0" value="ISBN 978-1-936213-13-9"/>
+        </reference>
+        <reference anchor="Unicode-10.0.0">
+          <front>
+            <title>The Unicode Standard, Version 10.0.0</title>
+            <author>
+              <organization>The Unicode Consortium</organization>
+            </author>
+            <date month="June" year="2017"/>
+          </front>
+          <seriesInfo name="The Unicode Standard, Version 10.0.0" value="ISBN 978-1-936213-16-0"/>
+        </reference>
+        <reference anchor="Unicode-11.0.0">
+          <front>
+            <title>The Unicode Standard, Version 11.0.0</title>
+            <author>
+              <organization>The Unicode Consortium</organization>
+            </author>
+            <date month="June" year="2018"/>
+          </front>
+          <seriesInfo name="The Unicode Standard, Version 11.0.0" value="ISBN 978-1-936213-19-1"/>
+        </reference>
+        <reference anchor="Unicode-12.0.0">
+          <front>
+            <title>The Unicode Standard, Version 12.0.0</title>
+            <author>
+              <organization>The Unicode Consortium</organization>
+            </author>
+            <date month="March" year="2019"/>
+          </front>
+          <seriesInfo name="The Unicode Standard, Version 12.0.0" value="ISBN 978-1-936213-22-1"/>
+        </reference>
+        <reference anchor="UTS-46">
+          <front>
+            <title>Unicode Technical Standard #46, Version 12.0.0</title>
+            <author>
+              <organization>The Unicode Consortium</organization>
+            </author>
+            <date month="March" year="2019"/>
+          </front>
+          <seriesInfo name="UNICODE IDNA COMPATIBILITY PROCESSING" value="http://www.unicode.org/reports/tr46/"/>
+        </reference>
+      </references>
     </references>
-    <references title='Non-normative references'>
-      &RFC3454;
-      &RFC3490;
-      &RFC5894;
-      &RFC5895;
-      &RFC6912;
-      &RFC8753;
-      <reference anchor="IAB">
-	<front>
-          <title>IAB Statement on Identifiers and Unicode 7.0.0</title>
-          <author>
-            <organization>Internet Architecture Board</organization>
-          </author>
-          <date month="January" year="2015" />
-        </front>
-	<seriesInfo name="IAB Statement on Identifiers and Unicode 7.0.0"
-		    value="https://www.iab.org/documents/correspondence-reports-documents/2015-2/iab-statement-on-identifiers-and-unicode-7-0-0/" />
-      </reference>
-      <reference anchor="SAC-084">
-	<front>
-          <title>SAC084</title>
-          <author>
-            <organization>The Security and Stability Advisory Committee</organization>
-          </author>
-          <date month="August" year="2016" />
-        </front>
-	<seriesInfo name="SSAC Comments on Guidelines for the Extended Process Similarity Review Panel for the IDN ccTLD Fast Track Process"
-		    value="https://www.icann.org/en/system/files/files/sac-084-en.pdf" />
-      </reference>
-      <reference anchor="Changes-11.0.0">
-	<front>
-          <title>Unicode Standard Annex #44</title>
-          <author>
-            <organization>The Unicode Consortium</organization>
-          </author>
-          <date month="May" year="2018" />
-        </front>
-	<seriesInfo name="Unicode Standard Annex #44, UNICODE CHARACTER DATABASE, Change History"
-		    value="https://www.unicode.org/reports/tr44/tr44-21d4.html#Change_History" />
-      </reference>
-      <reference anchor="Unicode-3.2.0">
-	<front>
-          <title>The Unicode Standard, Version 3.2.0</title>
-          <author>
-            <organization>The Unicode Consortium</organization>
-          </author>
-          <date month="March" year="2002" />
-        </front>
-	<seriesInfo name="The Unicode Standard, Version 3.2.0"
-		    value="ISBN 0-201-61633-5" />
-      </reference>
-      <reference anchor="Unicode-5.2.0">
-	<front>
-          <title>The Unicode Standard, Version 5.2.0</title>
-          <author>
-            <organization>The Unicode Consortium</organization>
-          </author>
-          <date month="October" year="2009" />
-        </front>
-	<seriesInfo name="The Unicode Standard, Version 5.2.0"
-		    value="ISBN 978-1-936213-00-9" />
-      </reference>
-      <reference anchor="Unicode-6.0.0">
-	<front>
-          <title>The Unicode Standard, Version 6.0.0</title>
-          <author>
-            <organization>The Unicode Consortium</organization>
-          </author>
-          <date month="October" year="2011" />
-        </front>
-	<seriesInfo name="The Unicode Standard, Version 6.0.0"
-		    value="ISBN 978-1-936213-01-6" />
-      </reference>
-      <reference anchor="Unicode-6.3.0">
-	<front>
-          <title>The Unicode Standard, Version 6.3.0</title>
-          <author>
-            <organization>The Unicode Consortium</organization>
-          </author>
-          <date month="September" year="2013" />
-        </front>
-	<seriesInfo name="The Unicode Standard, Version 6.3.0"
-		    value="ISBN 978-1-936213-08-5" />
-      </reference>
-      <reference anchor="Unicode-7.0.0">
-	<front>
-          <title>The Unicode Standard, Version 7.0.0</title>
-          <author>
-            <organization>The Unicode Consortium</organization>
-          </author>
-          <date month="June" year="2014" />
-        </front>
-	<seriesInfo name="The Unicode Standard, Version 7.0.0"
-		    value="ISBN 978-1-936213-09-2" />
-      </reference>
-      <reference anchor="Unicode-8.0.0">
-	<front>
-          <title>The Unicode Standard, Version 8.0.0</title>
-          <author>
-            <organization>The Unicode Consortium</organization>
-          </author>
-          <date month="June" year="2015" />
-        </front>
-	<seriesInfo name="The Unicode Standard, Version 8.0.0"
-		    value="ISBN 978-1-936213-10-8" />
-      </reference>
-      <reference anchor="Unicode-9.0.0">
-	<front>
-          <title>The Unicode Standard, Version 9.0.0</title>
-          <author>
-            <organization>The Unicode Consortium</organization>
-          </author>
-          <date month="June" year="2016" />
-        </front>
-	<seriesInfo name="The Unicode Standard, Version 9.0.0"
-		    value="ISBN 978-1-936213-13-9" />
-      </reference>
-      <reference anchor="Unicode-10.0.0">
-	<front>
-          <title>The Unicode Standard, Version 10.0.0</title>
-          <author>
-            <organization>The Unicode Consortium</organization>
-          </author>
-          <date month="June" year="2017" />
-        </front>
-	<seriesInfo name="The Unicode Standard, Version 10.0.0"
-		    value="ISBN 978-1-936213-16-0" />
-      </reference>
-      <reference anchor="Unicode-11.0.0">
-	<front>
-          <title>The Unicode Standard, Version 11.0.0</title>
-          <author>
-            <organization>The Unicode Consortium</organization>
-          </author>
-          <date month="June" year="2018" />
-        </front>
-	<seriesInfo name="The Unicode Standard, Version 11.0.0"
-		    value="ISBN 978-1-936213-19-1" />
-      </reference>
-      <reference anchor="Unicode-12.0.0">
-	<front>
-          <title>The Unicode Standard, Version 12.0.0</title>
-          <author>
-            <organization>The Unicode Consortium</organization>
-          </author>
-          <date month="March" year="2019" />
-        </front>
-	<seriesInfo name="The Unicode Standard, Version 12.0.0"
-		    value="ISBN 978-1-936213-22-1" />
-      </reference>
-      <reference anchor="UTS-46">
-	<front>
-          <title>Unicode Technical Standard #46, Version 12.0.0</title>
-          <author>
-            <organization>The Unicode Consortium</organization>
-          </author>
-          <date month="March" year="2019" />
-        </front>
-	<seriesInfo name="UNICODE IDNA COMPATIBILITY PROCESSING"
-		    value="http://www.unicode.org/reports/tr46/" />
-      </reference>
-    </references>
-    <section title="Changes from Unicode 6.3.0 to Unicode 7.0.0">
+    <section numbered="true" toc="default">
+      <name>Changes from Unicode 6.3.0 to Unicode 7.0.0</name>
       <t>
 	Changes from derived property value UNASSIGNED to either
 	PVALID or DISALLOWED.
       </t>
-      <figure><artwork>
+      <artwork name="" type="" align="left" alt=""><![CDATA[
 037F        ; DISALLOWED  # GREEK CAPITAL LETTER YOT
 0528..052F  ; DISALLOWED  # CYRILLIC CAPITAL LETTER EN WITH LEFT HOOK..C
 058D..058E  ; DISALLOWED  # RIGHT-FACING ARMENIAN ETERNITY SIGN..LEFT-FA
@@ -1006,13 +976,15 @@ FE27..FE2D  ; PVALID      # COMBINING LIGATURE LEFT HALF BELOW..COMBININ
 1F810..1F847; DISALLOWED  # LEFTWARDS ARROW WITH SMALL EQUILATERAL ARROW
 1F850..1F859; DISALLOWED  # LEFTWARDS SANS-SERIF ARROW..UP DOWN SANS-SER
 1F860..1F887; DISALLOWED  # WIDE-HEADED LEFTWARDS LIGHT BARB ARROW..WIDE
-</artwork></figure></section>
-    <section title="Changes from Unicode 7.0.0 to Unicode 8.0.0">
+]]></artwork>
+    </section>
+    <section numbered="true" toc="default">
+      <name>Changes from Unicode 7.0.0 to Unicode 8.0.0</name>
       <t>
 	Changes from derived property value UNASSIGNED to either
 	PVALID or DISALLOWED.
       </t>
-<figure><artwork>
+      <artwork name="" type="" align="left" alt=""><![CDATA[
 08B3..08B4  ; PVALID      # ARABIC LETTER AIN WITH THREE DOTS BELOW..ARA
 08E3        ; PVALID      # ARABIC TURNED DAMMA BELOW
 0AF9        ; PVALID      # GUJARATI LETTER ZHA
@@ -1023,7 +995,7 @@ FE27..FE2D  ; PVALID      # COMBINING LIGATURE LEFT HALF BELOW..COMBININ
 20BE        ; DISALLOWED  # LARI SIGN
 218A..218B  ; DISALLOWED  # TURNED DIGIT TWO..TURNED DIGIT THREE
 2BEC..2BEF  ; DISALLOWED  # LEFTWARDS TWO-HEADED ARROW WITH TRIANGLE ARR
-9FCD..9FD5  ; PVALID      # &lt;CJK Ideograph&gt;..&lt;CJK Ideograph&gt;
+9FCD..9FD5  ; PVALID      # <CJK Ideograph>..<CJK Ideograph>
 A69E        ; PVALID      # COMBINING CYRILLIC LETTER EF
 A78F        ; PVALID      # LATIN LETTER SINOLOGICAL DOT
 A7B2..A7B7  ; DISALLOWED  # LATIN CAPITAL LETTER J WITH CROSSED-TAIL..LA
@@ -1071,13 +1043,15 @@ FE2E..FE2F  ; PVALID      # COMBINING CYRILLIC TITLO LEFT HALF..COMBININ
 1F910..1F918; DISALLOWED  # ZIPPER-MOUTH FACE..SIGN OF THE HORNS
 1F980..1F984; DISALLOWED  # CRAB..UNICORN FACE
 1F9C0       ; DISALLOWED  # CHEESE WEDGE
-</artwork></figure></section>
-    <section title="Changes from Unicode 8.0.0 to Unicode 9.0.0">
+]]></artwork>
+    </section>
+    <section numbered="true" toc="default">
+      <name>Changes from Unicode 8.0.0 to Unicode 9.0.0</name>
       <t>
 	Changes from derived property value UNASSIGNED to either
 	PVALID or DISALLOWED.
       </t>
-<figure><artwork>
+      <artwork name="" type="" align="left" alt=""><![CDATA[
 08B6..08BD  ; PVALID      # ARABIC LETTER BEH WITH SMALL MEEM ABOVE..ARA
 08D4..08E2  ; PVALID      # ARABIC SMALL HIGH WORD AR-RUB..ARABIC DISPUT
 0C80        ; PVALID      # KANNADA SIGN SPACING CANDRABINDU
@@ -1107,7 +1081,7 @@ A8C5        ; PVALID      # SAURASHTRA SIGN CANDRABINDU
 11C92..11CA7; PVALID      # MARCHEN SUBJOINED LETTER KA..MARCHEN SUBJOIN
 11CA9..11CB6; PVALID      # MARCHEN SUBJOINED LETTER YA..MARCHEN SIGN CA
 16FE0       ; PVALID      # TANGUT ITERATION MARK
-17000..187EC; PVALID      # &lt;Tangut Ideograph&gt;..&lt;Tangut Ideograph&gt;
+17000..187EC; PVALID      # <Tangut Ideograph>..<Tangut Ideograph>
 18800..18AF2; PVALID      # TANGUT COMPONENT-001..TANGUT COMPONENT-755
 1E000..1E006; PVALID      # COMBINING GLAGOLITIC LETTER AZU..COMBINING G
 1E008..1E018; PVALID      # COMBINING GLAGOLITIC LETTER ZEMLJA..COMBININ
@@ -1129,13 +1103,15 @@ A8C5        ; PVALID      # SAURASHTRA SIGN CANDRABINDU
 1F933..1F93E; DISALLOWED  # SELFIE..HANDBALL
 1F940..1F94B; DISALLOWED  # WILTED FLOWER..MARTIAL ARTS UNIFORM
 1F950..1F95E; DISALLOWED  # CROISSANT..PANCAKES
-</artwork></figure></section>
-    <section title="Changes from Unicode 9.0.0 to Unicode 10.0.0">
+]]></artwork>
+    </section>
+    <section numbered="true" toc="default">
+      <name>Changes from Unicode 9.0.0 to Unicode 10.0.0</name>
       <t>
 	Changes from derived property value UNASSIGNED to either
 	PVALID or DISALLOWED.
       </t>
-<figure><artwork>
+      <artwork name="" type="" align="left" alt=""><![CDATA[
 0860..086A  ; PVALID      # SYRIAC LETTER MALAYALAM NGA..SYRIAC LETTER M
 09FC..09FD  ; PVALID      # BENGALI LETTER VEDIC ANUSVARA..BENGALI ABBRE
 0AFA..0AFF  ; PVALID      # GUJARATI SIGN SUKUN..GUJARATI SIGN TWO-CIRCL
@@ -1148,7 +1124,7 @@ A8C5        ; PVALID      # SAURASHTRA SIGN CANDRABINDU
 2BD2        ; DISALLOWED  # GROUP MARK
 2E45..2E49  ; DISALLOWED  # INVERTED LOW KAVYKA..DOUBLE STACKED COMMA
 312E        ; PVALID      # BOPOMOFO LETTER O WITH DOT ABOVE
-9FD6..9FEA  ; PVALID      # &lt;CJK Ideograph&gt;..&lt;CJK Ideograph&gt;
+9FD6..9FEA  ; PVALID      # <CJK Ideograph>..<CJK Ideograph>
 1032D..1032F; PVALID      # OLD ITALIC LETTER YE..OLD ITALIC LETTER SOUT
 11A00..11A47; PVALID      # ZANABAZAR SQUARE LETTER A..ZANABAZAR SQUARE 
 11A50..11A83; PVALID      # SOYOMBO LETTER A..SOYOMBO LETTER KSSA
@@ -1175,19 +1151,21 @@ A8C5        ; PVALID      # SAURASHTRA SIGN CANDRABINDU
 1F95F..1F96B; DISALLOWED  # DUMPLING..CANNED FOOD
 1F992..1F997; DISALLOWED  # GIRAFFE FACE..CRICKET
 1F9D0..1F9E6; DISALLOWED  # FACE WITH MONOCLE..SOCKS
-</artwork></figure></section>
-    <section title="Changes from Unicode 10.0.0 to Unicode 11.0.0">
+]]></artwork>
+    </section>
+    <section numbered="true" toc="default">
+      <name>Changes from Unicode 10.0.0 to Unicode 11.0.0</name>
       <t>
 	Changes from derived property value DISALLOWED to PVALID.
       </t>
-<figure><artwork>
+      <artwork name="" type="" align="left" alt=""><![CDATA[
 111C9       ; PVALID      # SHARADA SANDHI MARK
-</artwork></figure>
+]]></artwork>
       <t>
 	Changes from derived property value UNASSIGNED to either
 	PVALID or DISALLOWED.
       </t>
-<figure><artwork>
+      <artwork name="" type="" align="left" alt=""><![CDATA[
 0560        ; PVALID      # ARMENIAN SMALL LETTER TURNED AYB
 0588        ; PVALID      # ARMENIAN SMALL LETTER YI WITH STROKE
 05EF        ; PVALID      # HEBREW YOD TRIANGLE
@@ -1205,7 +1183,7 @@ A8C5        ; PVALID      # SAURASHTRA SIGN CANDRABINDU
 2BF0..2BFE  ; DISALLOWED  # ERIS FORM ONE..REVERSED RIGHT ANGLE
 2E4A..2E4E  ; DISALLOWED  # DOTTED SOLIDUS..PUNCTUS ELEVATUS MARK
 312F        ; PVALID      # BOPOMOFO LETTER NN
-9FEB..9FEF  ; PVALID      # &lt;CJK Ideograph&gt;..&lt;CJK Ideograph&gt;
+9FEB..9FEF  ; PVALID      # <CJK Ideograph>..<CJK Ideograph>
 A7AF        ; PVALID      # LATIN LETTER SMALL CAPITAL Q
 A7B8..A7B9  ; DISALLOWED  # LATIN CAPITAL LETTER U WITH STROKE..LATIN SM
 A8FE..A8FF  ; PVALID      # DEVANAGARI LETTER AY..DEVANAGARI VOWEL SIGN 
@@ -1230,7 +1208,7 @@ A8FE..A8FF  ; PVALID      # DEVANAGARI LETTER AY..DEVANAGARI VOWEL SIGN
 11DA0..11DA9; PVALID      # GUNJALA GONDI DIGIT ZERO..GUNJALA GONDI DIGI
 11EE0..11EF8; PVALID      # MAKASAR LETTER KA..MAKASAR END OF SECTION
 16E40..16E9A; DISALLOWED  # MEDEFAIDRIN CAPITAL LETTER M..MEDEFAIDRIN EX
-187ED..187F1; PVALID      # &lt;Tangut Ideograph&gt;..&lt;Tangut Ideograph&gt;
+187ED..187F1; PVALID      # <Tangut Ideograph>..<Tangut Ideograph>
 1D2E0..1D2F3; DISALLOWED  # MAYAN NUMERAL ZERO..MAYAN NUMERAL NINETEEN
 1D372..1D378; DISALLOWED  # IDEOGRAPHIC TALLY MARK ONE..TALLY MARK FIVE
 1EC71..1ECB4; DISALLOWED  # INDIC SIYAQ NUMBER ONE..INDIC SIYAQ ALTERNAT
@@ -1246,13 +1224,15 @@ A8FE..A8FF  ; PVALID      # DEVANAGARI LETTER AY..DEVANAGARI VOWEL SIGN
 1F9B0..1F9B9; DISALLOWED  # EMOJI COMPONENT RED HAIR..SUPERVILLAIN
 1F9C1..1F9C2; DISALLOWED  # CUPCAKE..SALT SHAKER
 1F9E7..1F9FF; DISALLOWED  # RED GIFT ENVELOPE..NAZAR AMULET
-</artwork></figure></section>
-<section title="Changes from Unicode 11.0.0 to Unicode 12.0.0">
-  <t>
+]]></artwork>
+    </section>
+    <section numbered="true" toc="default">
+      <name>Changes from Unicode 11.0.0 to Unicode 12.0.0</name>
+      <t>
     Changes from derived property value UNASSIGNED to either
     PVALID or DISALLOWED.
-  </t>
-<figure><artwork>
+      </t>
+      <artwork name="" type="" align="left" alt=""><![CDATA[
 0C77..0C7F  ; DISALLOWED  # TELUGU SIGN SIDDHAM..TELUGU SIGN TUUMU
 0E86..0E8A  ; PVALID      # LAO LETTER PALI GHA..LAO LETTER SO TAM
 0E8C..0EA3  ; PVALID      # LAO LETTER PALI JHA..LAO LETTER LO LING
@@ -1287,7 +1267,7 @@ AB60..AB67  ; PVALID      # LATIN SMALL LETTER SAKHA YAT..LATIN SMALL LE
 16F4F..16F87; PVALID      # MIAO SIGN CONSONANT MODIFIER BAR..MIAO VOWEL
 16FE2       ; DISALLOWED  # OLD CHINESE HOOK MARK
 16FE3       ; PVALID      # OLD CHINESE ITERATION MARK
-17000..187F7; PVALID      # &lt;Tangut Ideograph&gt;..&lt;Tangut Ideograph&gt;
+17000..187F7; PVALID      # <Tangut Ideograph>..<Tangut Ideograph>
 1B150..1B152; PVALID      # HIRAGANA LETTER SMALL WI..HIRAGANA LETTER SM
 1B164..1B167; PVALID      # KATAKANA LETTER SMALL WI..KATAKANA LETTER SM
 1E100..1E12C; PVALID      # NYIAKENG PUACHUE HMONG LETTER MA..NYIAKENG P
@@ -1312,6 +1292,7 @@ AB60..AB67  ; PVALID      # LATIN SMALL LETTER SAKHA YAT..LATIN SMALL LE
 1FA78..1FA7A; DISALLOWED  # DROP OF BLOOD..STETHOSCOPE
 1FA80..1FA82; DISALLOWED  # YO-YO..PARACHUTE
 1FA90..1FA95; DISALLOWED  # RINGED PLANET..BANJO
-</artwork></figure></section>
-</back>
+]]></artwork>
+    </section>
+  </back>
 </rfc>
