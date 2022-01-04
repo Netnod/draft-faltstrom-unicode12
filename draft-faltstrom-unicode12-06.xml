@@ -36,7 +36,7 @@
 <?rfc comments='yes' ?>
 <?rfc inline='yes' ?>  
 
-<rfc docName="draft-faltstrom-unicode12-05" ipr="trust200902" category="std">
+<rfc docName="draft-faltstrom-unicode12-06" ipr="trust200902" category="std">
   <front>
     <title abbrev="IDNA2008 and Unicode 12">
       IDNA2008 and Unicode 12.0.0
