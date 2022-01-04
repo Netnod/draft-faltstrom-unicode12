@@ -439,7 +439,7 @@
 	<t>
 	  The character ARABIC LETTER BEH WITH HAMZA ABOVE (U+08A1) was
 	  introduced in Unicode 7.0.0. This was discussed extensively in the IETF,
-	  and by the IAB in <xref target="IAB">their
+	  and by the IAB in <xref target="IAB2005-1">their
 	  statement</xref> requesting the IETF to investigate the
 	  issue. Specifically, the IAB stated:
 	</t>
@@ -449,7 +449,7 @@
 	      On the same precautionary principle, the IAB recommends
 	      that the Internationalized Domain Names for Applications
 	      (IDNA) Parameters registry
-	      (http://www.iana.org/assignments/idna-tables/) not be
+	      &lt;http://www.iana.org/assignments/idna-tables/&gt; not be
 	      updated to Unicode 7.0.0 until the IETF has consensus on a
 	      solution to this problem.
 	    </t>
@@ -743,7 +743,7 @@
           <date month="January" year="2015" day="27"/>
         </front>
 	<seriesInfo name="IAB Statement on Identifiers and Unicode 7.0.0"
-		    value="https://www.iab.org/documents/correspondence-reports-documents/2015-2/iab-statement-on-identifiers-and-unicode-7-0-0/archive/" />
+		    value="&lt;https://www.iab.org/documents/correspondence-reports-documents/2015-2/iab-statement-on-identifiers-and-unicode-7-0-0/archive/&gt;" />
       </reference>
       <reference anchor="IAB2005-2">
 	<front>
@@ -754,7 +754,7 @@
           <date month="February" year="2015" day="11"/>
         </front>
 	<seriesInfo name="IAB Statement on Identifiers and Unicode 7.0.0"
-		    value="https://www.iab.org/documents/correspondence-reports-documents/2015-2/iab-statement-on-identifiers-and-unicode-7-0-0/" />
+		    value="&lt;https://www.iab.org/documents/correspondence-reports-documents/2015-2/iab-statement-on-identifiers-and-unicode-7-0-0/&gt;" />
       </reference>
       <reference anchor="IDNA7">
 	<front>
@@ -765,8 +765,8 @@
           </author>
           <date month="October" year="2017" />
         </front>
-	<seriesInfo name="IDNA Update for Unicode 7.0 and Later Versions"
-		    value="https://datatracker.ietf.org/doc/draft-klensin-idna-5892upd-unicode70/" />
+	<seriesInfo name="draft-klensin-idna-5892upd-unicode70"
+		    value="&lt;https://datatracker.ietf.org/doc/draft-klensin-idna-5892upd-unicode70/&gt;" />
       </reference>
       <reference anchor="SAC-084">
 	<front>
@@ -777,7 +777,7 @@
           <date month="August" year="2016" />
         </front>
 	<seriesInfo name="SSAC Comments on Guidelines for the Extended Process Similarity Review Panel for the IDN ccTLD Fast Track Process"
-		    value="https://www.icann.org/en/system/files/files/sac-084-en.pdf" />
+		    value="&lt;https://www.icann.org/en/system/files/files/sac-084-en.pdf&gt;" />
       </reference>
       <reference anchor="Unicode-3.2.0">
 	<front>
@@ -876,7 +876,7 @@
           <date month="March" year="2019" />
         </front>
 	<seriesInfo name="UNICODE IDNA COMPATIBILITY PROCESSING"
-		    value="http://www.unicode.org/reports/tr46/" />
+		    value="&lt;http://www.unicode.org/reports/tr46/&gt;" />
       </reference>
       <reference anchor="IANA-IDNA">
 	<front>
@@ -887,7 +887,7 @@
 	  <date month="April" year="2020" />
         </front>
 	<seriesInfo name="IDNA Rules and Derived Property Values"
-		    value="https://www.iana.org/assignments/idna-tables-6.0.0/idna-tables-6.0.0.xhtml" />
+		    value="&lt;https://www.iana.org/assignments/idna-tables-6.0.0/idna-tables-6.0.0.xhtml&gt;" />
       </reference>
     </references>
     <section anchor="Appendix-6.0.0" title="Changes from Unicode 6.0.0 to Unicode 7.0.0">
