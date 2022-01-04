@@ -47,7 +47,7 @@
 	<email>paf@netnod.se</email>
       </address>
     </author>
-    <date month="December" year="2021" day="03"/>
+    <date month="January" year="2022" day="04"/>
     <area>Operations</area>
     <keyword>IDN</keyword>
     <keyword>IDNA</keyword>
@@ -181,21 +181,34 @@
       </t>
       <t>
 	Further, in 2015, the Internet Architecture Board (IAB) issued
-	<xref target="IAB">a statement</xref> that asked the IETF to
-	resolve the issues related to the code point ARABIC LETTER BEH
-	WITH HAMZA ABOVE (U+08A1) that was introduced in <xref
-	target="Unicode-7.0.0">Unicode 7.0.0</xref>. Again, no
-	exception is added to <xref target="RFC5892">RFC 5892</xref>;
-	however, it should be noted that the review of the issues
-	around U+08A1 indicated that this code point is not an
-	isolated case and that a number of PVALID code points of long
-	standing may have similar issues. The problem resulted in a
-	clarification of the review process of new Unicode versions,
-	which are published in <xref target="RFC8753">RFC 8753</xref>.
-	Any review of Unicode versions after 12.0.0 should be made
-	according to <xref target="RFC8753">RFC 8753</xref>; an
-	objective of this document is to ensure that a proper review
-	of such versions after version 12.0.0 can be made.
+	<xref target="IAB2005-1">a statement</xref> that advised the
+	community to avoid using any of the potentially problematic
+	code points and asked the IETF to resolve the issues related
+	to the code point ARABIC LETTER BEH WITH HAMZA ABOVE (U+08A1)
+	that was introduced in <xref target="Unicode-7.0.0">Unicode
+	7.0.0</xref>. In February of that year, the statement was
+	<xref target="IAB2005-2">revised</xref> to focus on the latter
+	request. More details about the problem of code point
+	sequences not normalizing as one might expect appear in <xref
+	target="IDNA7">a draft that was part of the
+	discussion</xref>.
+      </t>
+      <t>
+	The result of the work in the IETF was that no exception was
+	added to <xref target="RFC5892">RFC 5892</xref>; however, it
+	should be noted that the review of the issues around U+08A1
+	indicated that this code point is not an isolated case and
+	that a number of PVALID code points of long standing may have
+	similar issues. While the affected code points remain PVALID
+	in this document, identification of the problem resulted in a
+	clarification of the review process for new Unicode
+	versions. That clarification, which reinforces the original
+	review plan to capture issues like these, was published as
+	<xref target="RFC8753">RFC 8753</xref>.  Any review of Unicode
+	versions after 12.0.0 should be made according to <xref
+	target="RFC8753">RFC 8753</xref>; an objective of this
+	document is to ensure that a proper review of such versions
+	after version 12.0.0 can be made.
       </t>
     </section>
     <section title="Background">
@@ -721,16 +734,39 @@
       &RFC5895;
       &RFC6912;
       &RFC8753;
-      <reference anchor="IAB">
+      <reference anchor="IAB2005-1">
 	<front>
           <title>IAB Statement on Identifiers and Unicode 7.0.0</title>
           <author>
             <organization>Internet Architecture Board</organization>
           </author>
-          <date month="January" year="2015" />
+          <date month="January" year="2015" day="27"/>
+        </front>
+	<seriesInfo name="IAB Statement on Identifiers and Unicode 7.0.0"
+		    value="https://www.iab.org/documents/correspondence-reports-documents/2015-2/iab-statement-on-identifiers-and-unicode-7-0-0/archive/" />
+      </reference>
+      <reference anchor="IAB2005-2">
+	<front>
+          <title>IAB Statement on Identifiers and Unicode 7.0.0</title>
+          <author>
+            <organization>Internet Architecture Board</organization>
+          </author>
+          <date month="February" year="2015" day="11"/>
         </front>
 	<seriesInfo name="IAB Statement on Identifiers and Unicode 7.0.0"
 		    value="https://www.iab.org/documents/correspondence-reports-documents/2015-2/iab-statement-on-identifiers-and-unicode-7-0-0/" />
+      </reference>
+      <reference anchor="IDNA7">
+	<front>
+          <title>IDNA Update for Unicode 7.0 and Later Versions</title>
+          <author fullname="John Klensin" initials="J." surname="Klensin">
+          </author>
+          <author fullname="Patrik Faltstrom" initials="P." surname="Faltstrom">
+          </author>
+          <date month="October" year="2017" />
+        </front>
+	<seriesInfo name="IDNA Update for Unicode 7.0 and Later Versions"
+		    value="https://datatracker.ietf.org/doc/draft-klensin-idna-5892upd-unicode70/" />
       </reference>
       <reference anchor="SAC-084">
 	<front>
